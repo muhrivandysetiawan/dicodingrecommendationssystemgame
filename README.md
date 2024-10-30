@@ -14,17 +14,24 @@ Pentingnya proyek sistem rekomendasi game ini dapat dilihat dari beberapa aspek:
   
 ### Project Overview
 
+Dari latar belakang yang telah dipaparkan di atas, berikuti ni merupaakan masalah dan tujaun yang dihasilkan di atas:
+- **Problem Statement**:
+1. Pengguna Steam seringkali kesulitan menemukan game baru yang sesuai dengan preferensi mereka karena banyaknya pilihan game yang tersedia. <br>
+2. Developer game kesulitan dalam mempromosikan game mereka kepada target audiens yang tepat di platform Steam. <br>
+- **Goals**: 
+1. Mengembangkan sistem rekomendasi yang dapat memberikan rekomendasi game yang personal dan relevan kepada pengguna Steam berdasarkan riwayat permainan, rating, dan preferensi pengguna lain yang serupa. <br>
+2. Membantu developer game untuk mengidentifikasi pengguna Steam yang paling mungkin tertarik dengan game mereka, sehingga dapat meningkatkan visibilitas dan penjualan game. <br>
 
-- Menjelaskan proses klarifikasi masalah.Bagian laporan ini mencakup: <br>
-  Problem Statements (pernyataan masalah) <br>
-  Goals (tujuan) <br>
-  Semua poin di atas harus diuraikan dengan jelas. <br>
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: <br>
-  Mengajukan dua solution approach (content based filtering dan collaborative filtering) <br>
+Untuk mencapai goals, dua pendekatan solusi utama akan diimplementasikan:
+1. **Content Based Filtering**: Merekomendasikan game yang mirip dengan game yang pernah dimainkan atau disukai oleh pengguna berdasarkan fitur-fitur game seperti genre, tema, dan developer. <br>
+2. **Collaborative Filtering**: Merekomendasikan game berdasarkan preferensi pengguna lain yang memiliki selera serupa dengan mencari pengguna yang memiliki riwayat permainan dan rating yang mirip. <br>
 
 
 ### Business Understanding
 
+
+Ini adalah sebuah tautan untuk merancang proyek adalah sebagai berikut: <br>
+https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam
 
 - Memberikan informasi seperti jumlah data, kondisi data, dan informasi mengenai data yang digunakan. <br>
 - Menuliskan tautan sumber data (link download). <br>
