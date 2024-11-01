@@ -1,5 +1,7 @@
 ## Proyek Sistem Rekomendasi Game
 
+### Project Overview
+
 Industri video game telah berkembang pesat dalam beberapa tahun terakhir. Jumlah judul game yang tersedia di platform digital seperti Steam telah meningkat secara signifikan. Dengan lebih dari 50.000 game yang terdaftar di Steam, pengguna sering kali mengalami kesulitan menemukan game yang sesuai dengan preferensi mereka. Hal ini menciptakan kebutuhan mendesak akan sistem rekomendasi yang efektif untuk membantu pengguna menavigasi pilihan yang beragam dan menemukan game yang paling sesuai dengan minat mereka.
 
 Sistem rekomendasi berfungsi untuk memprediksi dan menyarankan produk yang mungkin diminati oleh pengguna berdasarkan data historis dan preferensi individu. Dalam konteks game, sistem ini tidak hanya meningkatkan pengalaman pengguna tetapi juga dapat berkontribusi pada peningkatan penjualan dan keterlibatan pengguna di platform. Penelitian menunjukkan bahwa sistem rekomendasi yang baik dapat meningkatkan user engagement dan mendorong pembelian produk, sehingga menjadi alat penting bagi pengembang dan penerbit game untuk mencapai audiens mereka secara lebih efektif (I Putu & Ida Bagus, 2023; Zhang & Zhao, 2024; Akbar Fauzy Ali, 2023).
@@ -11,8 +13,10 @@ Pentingnya proyek sistem rekomendasi game ini dapat dilihat dari beberapa aspek:
 2. **Mendorong Penjualan**: Rekomendasi yang tepat dapat meningkatkan kemungkinan pembelian. Penelitian menunjukkan bahwa pengguna cenderung membeli produk yang direkomendasikan jika mereka merasa itu sesuai dengan preferensi mereka (Farooq & Humera, 2022).
 3. **Adaptasi terhadap Preferensi Dinamis:** Algoritma modern seperti DRL dapat belajar dari interaksi pengguna secara real-time, memungkinkan sistem untuk beradaptasi dengan perubahan preferensi pengguna seiring waktu (Akbar Fauzy Ali, 2023).
 4. **Diversity dalam Rekomendasi:** Banyak sistem saat ini berfokus pada akurasi namun mengabaikan keberagaman dalam rekomendasi. Proyek ini bertujuan untuk menciptakan keseimbangan antara akurasi dan keberagaman dalam saran yang diberikan kepada pengguna (Zhang & Zhao, 2024).
-  
-### Project Overview
+
+
+### Business Understanding
+
 
 Dari latar belakang yang telah dipaparkan di atas, berikuti ni merupaakan masalah dan tujaun yang dihasilkan di atas:
 - **Problem Statement**:
@@ -26,8 +30,7 @@ Untuk mencapai goals, dua pendekatan solusi utama akan diimplementasikan:
 1. **Content Based Filtering**: Merekomendasikan game yang mirip dengan game yang pernah dimainkan atau disukai oleh pengguna berdasarkan fitur-fitur game seperti genre, tema, dan developer. <br>
 2. **Collaborative Filtering**: Merekomendasikan game berdasarkan preferensi pengguna lain yang memiliki selera serupa dengan mencari pengguna yang memiliki riwayat permainan dan rating yang mirip. <br>
 
-
-### Business Understanding
+### Data Understanding
 
 Berikut ini merupakan informasi data untuk menunjnag proyek pada tabel di bawah ini:
 
@@ -67,24 +70,53 @@ Berikut ini merupakan informasi data untuk menunjnag proyek pada tabel di bawah 
 | products | 14306064        | int64     | Jumlah produk yang dimiliki oleh pengguna |
 | reviews  | 14306064        | int64     | Jumlah ulasan yang telah dibuat oleh pengguna |
 
+Proyek ini diseleksi menjadi 5000 data dari semua jumlah data yang tersedia karena data di atas cukup banyak dan bisa menyebbakan crash ketika melakukan komputasi. Sleain itu, seleksi ini ditujukan agar komputasi bisa berjalan lancar dibandingkan harus menggunakan semua data.
 
 Ini adalah sebuah tautan untuk merancang proyek adalah sebagai berikut: <br>
 https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam
+
+Berikut ini adalah penjelasan tabel yang diambil secara mendalam adalah tabel sebagai berikut:
+
+1. Tabel games <br>
+Tabel ini berisi informasi tentang game-game yang ada di Steam. Variabel-variabelnya adalah: <br>
+app_id: ID unik untuk setiap game di Steam (tipe data: int64). <br>
+title: Judul game (tipe data: object). <br>
+date_release: Tanggal rilis game (tipe data: object, dapat diubah ke datetime64[ns]). <br>
+win: Apakah game tersedia di Windows (True/False) (tipe data: bool). <br>
+mac: Apakah game tersedia di macOS (True/False) (tipe data: bool). <br>
+linux: Apakah game tersedia di Linux (True/False) (tipe data: bool). <br>
+rating: Rating game (0-100) (tipe data: int64). <br>
+positive_ratio: Rasio ulasan positif (0-100) (tipe data: int64). <br>
+user_reviews: Jumlah total ulasan pengguna (tipe data: int64). <br>
+price_final: Harga akhir game setelah perubahan (tipe data: float64). <br>
+price_original: Harga asli game sebelum perubahan (tipe data: float64). <br>
+discount: Persentase diskon (tipe data: float64). <br>
+steam_deck: Apakah game kompatibel dengan Steam Deck (True/False) (tipe data: bool). <br>
+
+2. Tabel recommendations <br>
+Tabel ini berisi rekomendasi game dari pengguna. Variabel-variabelnya adalah: <br>
+app_id: ID unik untuk setiap game di Steam (tipe data: int64). <br>
+helpful: Jumlah pengguna yang menganggap ulasan ini membantu (tipe data: int64). <br>
+funny: Jumlah pengguna yang menganggap ulasan ini lucu (tipe data: int64).<br>
+date: Tanggal ulasan dibuat (tipe data: object, dapat diubah ke datetime). <br>
+is_recommended: Apakah pengguna merekomendasikan game ini (True/False) (tipe data: bool). <br>
+hours: Jumlah jam pengguna telah memainkan game ini (tipe data: float64). <br>
+user_id: ID unik untuk setiap pengguna yang menulis ulasan (tipe data: int64). <br>
+review_id: ID unik untuk setiap ulasan (tipe data: int64). <br>
+
+3. Tabel user <br>
+Tabel ini berisi informasi tentang pengguna. Variabel-variabelnya adalah: <br>
+user_id: Pengenal unik untuk setiap pengguna. <br>
+products: Jumlah produk yang terkait dengan pengguna. <br>
+reviews: Jumlah ulasan yang ditulis oleh pengguna. <br>
+
+
+
 
 - Memberikan informasi seperti jumlah data, kondisi data, dan informasi mengenai data yang digunakan. <br>
 - Menuliskan tautan sumber data (link download). <br>
 - Menguraikan seluruh variabel atau fitur pada data. <br>
 - Melakukan beberapa tahapan yang diperlukan mengenai data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis. <br>
-
-
-### Data Understanding
-
-
-- Menerapkan dan menyebutkan teknik data preparation yang dilakukan. <br>
-- Teknik yang digunakan pada notebook dan laporan harus berurutan. <br>
-- Menjelaskan proses data preparation yang dilakukan. <br>
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut. <br>
-
 
 ### Data Preparation
 
