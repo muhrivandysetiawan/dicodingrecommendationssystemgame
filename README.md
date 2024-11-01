@@ -29,6 +29,44 @@ Untuk mencapai goals, dua pendekatan solusi utama akan diimplementasikan:
 
 ### Business Understanding
 
+Berikut ini merupakan informasi data untuk menunjnag proyek pada tabel di bawah ini:
+
+### 1. Dataset Informasi Game
+| Kolom           | Jumlah Non-Null | Tipe Data | Deskripsi |
+|-----------------|-----------------|-----------|-----------|
+| app_id          | 50872           | int64     | ID unik dari game |
+| title           | 50872           | object    | Judul game |
+| date_release    | 50872           | object    | Tanggal rilis game |
+| win             | 50872           | bool      | Tersedia di platform Windows |
+| mac             | 50872           | bool      | Tersedia di platform MacOS |
+| linux           | 50872           | bool      | Tersedia di platform Linux |
+| rating          | 50872           | object    | Rating dari game |
+| positive_ratio  | 50872           | int64     | Rasio ulasan positif |
+| user_reviews    | 50872           | int64     | Jumlah ulasan pengguna |
+| price_final     | 50872           | float64   | Harga akhir setelah diskon |
+| price_original  | 50872           | float64   | Harga asli dari game |
+| discount        | 50872           | float64   | Diskon yang diberikan |
+| steam_deck      | 50872           | bool      | Tersedia di platform Steam Deck |
+
+### 2. Dataset Ulasan Pengguna
+| Kolom           | Jumlah Non-Null | Tipe Data | Deskripsi |
+|-----------------|-----------------|-----------|-----------|
+| app_id          | 41154794        | int64     | ID unik dari game |
+| helpful         | 41154794        | int64     | Jumlah pengguna yang merasa ulasan ini bermanfaat |
+| funny           | 41154794        | int64     | Jumlah pengguna yang merasa ulasan ini lucu |
+| date            | 41154794        | object    | Tanggal ulasan dibuat |
+| is_recommended  | 41154794        | bool      | Apakah ulasan ini merekomendasikan game tersebut |
+| hours           | 41154794        | float64   | Jumlah jam yang dimainkan oleh pengguna |
+| user_id         | 41154794        | int64     | ID unik dari pengguna |
+| review_id       | 41154794        | int64     | ID unik dari ulasan |
+
+### 3. Dataset Informasi Pengguna
+| Kolom    | Jumlah Non-Null | Tipe Data | Deskripsi |
+|----------|------------------|-----------|-----------|
+| user_id  | 14306064        | int64     | ID unik dari pengguna |
+| products | 14306064        | int64     | Jumlah produk yang dimiliki oleh pengguna |
+| reviews  | 14306064        | int64     | Jumlah ulasan yang telah dibuat oleh pengguna |
+
 
 Ini adalah sebuah tautan untuk merancang proyek adalah sebagai berikut: <br>
 https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam
