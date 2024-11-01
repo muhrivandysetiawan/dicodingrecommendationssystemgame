@@ -110,13 +110,76 @@ user_id: Pengenal unik untuk setiap pengguna. <br>
 products: Jumlah produk yang terkait dengan pengguna. <br>
 reviews: Jumlah ulasan yang ditulis oleh pengguna. <br>
 
+Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomendasi adalah sebagai berikut:
+
+## Analisis Univariat
+
+
+![download](https://github.com/user-attachments/assets/7806b72b-aab8-4853-a43c-49af3bf81487)
+
+
+Analisis harga akhir setelah diskon dapat menunjukkan rentang harga game yang paling umum di Steam. Distribusi harga dapat memperlihatkan seberapa banyak game yang tergolong mahal, menengah, atau murah. Rata-rata dan median harga juga dapat dihitung untuk melihat apakah distribusinya terpusat atau miring.
+
+
+![download (1)](https://github.com/user-attachments/assets/db794ab1-336d-4d1c-81db-903118e137af)
+
+
+Menampilkan distribusi rasio ulasan positif membantu melihat bagaimana sebagian besar game diterima oleh pengguna. Apakah lebih banyak game yang memiliki rasio ulasan positif tinggi atau rendah? Ini dapat menjadi indikator kualitas umum dari game yang tersedia.
+
+
+![download (2)](https://github.com/user-attachments/assets/17782af1-3a54-4e5a-9ed3-45b044d4e813)
 
 
 
-- Memberikan informasi seperti jumlah data, kondisi data, dan informasi mengenai data yang digunakan. <br>
-- Menuliskan tautan sumber data (link download). <br>
-- Menguraikan seluruh variabel atau fitur pada data. <br>
-- Melakukan beberapa tahapan yang diperlukan mengenai data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis. <br>
+Dengan menghitung frekuensi distribusi untuk setiap platform (Windows, MacOS, Linux, Steam Deck), kita bisa memahami game mana yang paling banyak tersedia dan berapa banyak game yang eksklusif untuk platform tertentu.
+
+
+![download (3)](https://github.com/user-attachments/assets/618856ee-eee2-401e-bf06-85f25ba8e485)
+
+
+Memvisualisasikan distribusi rating membantu memahami kualitas umum dari game-game yang ada di Steam. Rating dapat diubah menjadi skor numerik jika memiliki banyak kategori untuk mempermudah analisis lebih lanjut.
+
+
+![download (4)](https://github.com/user-attachments/assets/8a0146d4-eb09-4377-847c-6434de16129d)
+
+
+Melakukan analisis distribusi jumlah jam bermain menunjukkan seberapa sering dan lama rata-rata pengguna memainkan game. Distribusi ini juga dapat mengidentifikasi pengguna aktif dan casual.
+
+
+![download (5)](https://github.com/user-attachments/assets/5e552a56-6364-47b5-a880-7011c06194d9)
+
+
+Analisis ini merupakan analisis dimana 10 game terbaik dalam Steam. 
+
+
+## Analisis Multivariat
+
+
+![download (6)](https://github.com/user-attachments/assets/7b6ff39f-3e0f-4a36-b308-b1bfb37f2888)
+
+
+Korelasi antara variabel discount dan price_final dengan jumlah ulasan (user_reviews) dapat membantu menganalisis apakah diskon mempengaruhi popularitas atau pembelian game. Penurunan harga (diskon) biasanya berkaitan dengan kenaikan pembelian, dan analisis ini bisa menunjukkan korelasinya.
+
+
+![download (7)](https://github.com/user-attachments/assets/043e9cce-86c4-42cb-8a0d-c8e07c869338)
+
+
+Memeriksa korelasi antara rasio ulasan positif dan jumlah jam bermain menunjukkan apakah game dengan ulasan positif cenderung memiliki pengguna yang menghabiskan lebih banyak waktu di dalam game. Game yang bagus umumnya memiliki review positif dan waktu bermain yang tinggi.
+
+
+![download (8)](https://github.com/user-attachments/assets/3c80915e-b4f0-4f22-ad70-3a291c393f75)
+
+
+Meneliti korelasi antara harga game dan rasio ulasan positif membantu melihat apakah harga game memengaruhi persepsi kualitas game. Game yang lebih murah mungkin lebih terjangkau tetapi belum tentu memiliki rasio ulasan positif yang tinggi.
+
+
+![download (9)](https://github.com/user-attachments/assets/60faf6ce-f9e3-4582-8fa2-72b0687b9fb3)
+![download (10)](https://github.com/user-attachments/assets/5f3f2884-66b4-4002-b409-e58138804176)
+
+
+Melakukan analisis jumlah rekomendasi ulasan dari pengguna berdasarkan platform dapat menunjukkan platform mana yang lebih disukai atau populer di kalangan pemain.
+
+
 
 ### Data Preparation
 
