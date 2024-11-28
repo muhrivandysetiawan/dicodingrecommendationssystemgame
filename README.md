@@ -215,7 +215,7 @@ Collaborative Filtering (Item-Based): Algoritma ini merekomendasikan game yang d
 
 Kelebihan dan Kekurangan Pendekatan yang Dipilih:
 
-Content-Based Filtering:
+1. Content-Based Filtering:  <br>
 
 Kelebihan:
 Mudah diimplementasi dan dipahami.<br>
@@ -227,7 +227,7 @@ Kekurangan:
 -Membutuhkan data konten yang kaya dan terstruktur. <br>
 -Sulit untuk merekomendasikan item di luar preferensi pengguna yang sudah ada.<br>
 
-Collaborative Filtering (Item-Based): <br>
+2. Collaborative Filtering (Item-Based): <br>
 
 Kelebihan:
 -Dapat memberikan rekomendasi yang mengejutkan dan tidak terduga. <br>
@@ -241,12 +241,82 @@ Kekurangan:
 
 ### Modeling and Result
 
+1. Content Based Filtering <br>
 
-- Membuat dan menjelaskan sistem rekomendasi untuk menyelesaikan permasalahan <br>
-- Menyajikan top-N recommendation sebagai output. <br>
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda. <br>
-- Menjelaskan kelebihan dan kekurangan pada pendekatan yang dipilih. <br>
+TF-IDF Vectorizer adalah metode yang digunakan dalam pemrosesan teks untuk mengubah dokumen menjadi representasi numerik. TF-IDF, atau Term Frequency-Inverse Document Frequency, memberikan bobot pada kata-kata dalam dokumen berdasarkan frekuensi kemunculannya dan seberapa umum kata tersebut di seluruh dokumen. Dengan cara ini, kata-kata yang sering muncul dalam satu dokumen tetapi jarang muncul di dokumen lain akan mendapatkan nilai yang lebih tinggi, sehingga membantu dalam meningkatkan akurasi analisis data. Penelitian menunjukkan bahwa penggunaan TF-IDF dalam klasifikasi teks, seperti pada analisis sentimen, dapat memberikan hasil yang lebih baik dibandingkan metode lain seperti Count Vectorizer, dengan akurasi mencapai 88,77%.(Mustafa, 2023)
 
+Cosine Similarity adalah metode yang digunakan untuk mengukur kesamaan antara dua vektor dalam ruang multidimensi. Dalam konteks pemrosesan teks, setelah dokumen diubah menjadi representasi vektor menggunakan teknik seperti TF-IDF, Cosine Similarity dapat digunakan untuk menentukan seberapa mirip dua dokumen berdasarkan sudut antara mereka dalam ruang vektor. Nilai Cosine Similarity berkisar antara -1 hingga 1, di mana 1 menunjukkan kesamaan penuh dan 0 menunjukkan tidak ada kesamaan. Metode ini sangat berguna dalam berbagai aplikasi seperti deteksi plagiarisme dan rekomendasi konten, karena mampu membandingkan dokumen secara efisien dan efektif.(Januzaj,2022)
+
+Langkah-langkah yang sering dihadapi oleh model Content Based adalah:
+1. Representasi item: Setiap item direpresentasikan dalam bentuk fitur (contohnya genre film, kata kunci artikel, deskripsi produk, dll.).
+2. Representasi pengguna: Profil pengguna dibangun berdasarkan rata-rata atau agregasi dari fitur item yang telah diberi rating positif oleh pengguna.
+3. Kalkulasi kesamaan: Menggunakan metrik seperti cosine similarity, dot product, atau Euclidean distance untuk menghitung kemiripan antara profil pengguna dan item.
+4. Rekomendasi top-N: Item dengan skor kesamaan tertinggi dengan profil pengguna diberikan sebagai rekomendasi.
+
+Berikut ini adalah hasil dari Content Based Filtering
+
+![Gambar 15](https://github.com/user-attachments/assets/c922b498-5da0-4eb5-9774-598837128496)
+
+Gambar 15. Hasil dari Output Content Based Filtering
+
+Gambar di atas menunjukkan daftar judul permainan video beserta genre dan rating pengguna. Daftar ini mencakup berbagai jenis permainan seperti "Just Dance 2024" yang bergenre aksi dan "Counter-Strike: Global Offensive" yang bergenre pesta. Informasi ini relevan bagi siapa saja yang tertarik dengan permainan video dan ingin mengetahui genre serta rating dari beberapa judul populer ketika aku membuat input game GTA 5. 
+
+Pendekatan yang dilakukan pada proyek ini adalah
+TF-IDF Vectorizer: <br>
+- Item direpresentasikan menggunakan TF-IDF vectorizer berdasarkan deskripsi teks atau metadata (seperti genre, sinopsis, atau kata kunci). <br>
+- Profil pengguna dibangun dengan menggabungkan TF-IDF dari item yang mereka sukai. <br>
+- Skor kesamaan dihitung menggunakan cosine similarity.<br>
+
+Kelebihan dari Content-Based Filtering:
+
+- Personalisasi Tinggi: Content-Based Filtering (CBF) memberikan rekomendasi yang sangat relevan dengan preferensi spesifik pengguna berdasarkan atribut atau fitur item yang disukai sebelumnya. <br>
+- Tidak Memerlukan Data Pengguna Lain: CBF tidak terpengaruh oleh perubahan perilaku pengguna lain, sehingga lebih stabil dan konsisten dalam memberikan rekomendasi. <br>
+- Interpretasi Mudah: Karena berdasarkan fitur item yang diketahui, alasan di balik rekomendasi dapat dijelaskan dengan mudah kepada pengguna. <br>
+
+Kekurangan dari Content-Based Filtering:
+
+- Cold-Start Problem: Untuk pengguna baru, tidak ada riwayat untuk membangun profil. Untuk item baru, fitur mungkin belum cukup representatif. <br>
+- Kurangnya Eksplorasi: CBF cenderung merekomendasikan item yang mirip dengan yang sudah disukai pengguna, sehingga kurang mampu memberikan rekomendasi yang berbeda atau mengejutkan. <br>
+- Ketergantungan pada Kualitas Data: Jika fitur item tidak akurat atau tidak lengkap, rekomendasi yang dihasilkan juga menjadi tidak optimal.<br>
+
+
+2. Collaborative Filtering <br>
+
+Collaborative Filtering metode Item-Based adalah teknik dalam sistem rekomendasi yang memprediksi preferensi pengguna terhadap suatu item berdasarkan kesamaan antara item-item tersebut. Metode ini mengasumsikan bahwa jika pengguna menyukai suatu item, mereka kemungkinan besar akan menyukai item lain yang mirip. Algoritma ini bekerja dengan menghitung kesamaan antara item-item berdasarkan rating yang diberikan oleh pengguna. Misalnya, jika seorang pengguna menyukai film A dan film B, maka film C yang mirip dengan film B juga akan direkomendasikan kepada pengguna tersebut. Metode ini menunjukkan bahwa algoritma ini dapat mengatasi masalah data sparsity dan cold-start dengan menggabungkan beberapa metrik kesamaan tradisional seperti Cosine-based similarity, Pearson correlation similarity, dan Adjusted cosine similarity. (Ajaegbu, 2021) 
+
+Implementasi metode Item-Based Collaborative Filtering juga telah diterapkan dalam berbagai domain, termasuk e-commerce dan sistem rekomendasi film. Studi oleh Dewi et al. (2023) mengadopsi metode ini untuk mengelompokkan film yang serupa sebelum memberikan rekomendasi kepada pengguna, yang bertujuan untuk mereduksi data dan mempercepat proses eksekusi. Hasil penelitian menunjukkan bahwa metode ini efektif dalam memberikan rekomendasi yang akurat meskipun terdapat tantangan dalam hal waktu eksekusi dan akurasi prediksi rating. Dengan demikian, metode Item-Based Collaborative Filtering tetap menjadi pilihan yang populer dalam pengembangan sistem rekomendasi modern. (Dewi et al, 2023)
+
+Berikt ii adalah langkah-langkah dari Collaborative Filtering:
+1. Representasi data: Data disusun dalam bentuk user-item matrix (misalnya, pengguna memberikan rating untuk beberapa item).
+2. Pemetaan hubungan dengan Mencari kesamaan antar pengguna (user-based CF), atau Mencari kesamaan antar item (item-based CF).
+3. Prediksi preferensi dengan Prediksi rating atau skor untuk item yang belum dinilai oleh pengguna.
+4. Rekomendasi top-N: Pilih item dengan skor tertinggi yang belum pernah dilihat atau dinilai oleh pengguna.
+
+Berikut ini adalah hasil dari Content Based Filtering
+
+![Gambar 16](https://github.com/user-attachments/assets/b0192159-9c51-4d8a-8a24-c80b5db55f06)
+
+Gambar 16. Hasil dari Output Collaborative Filtering
+
+Gambar di atas adalah tabel yang berisi daftar permainan video dengan kolom "Game Title" dan "Genre". Tabel ini mencantumkan beberapa judul permainan seperti "The Sims 4", "Spelunky 2", "Stardew Valley", "Overwatch 2", dan "Animal Crossing: New Horizons" dengan berbagai genre seperti Shooter, Adventure, Action, Fighting, Simulation, RPG, dan Sports. Tabel ini menunjukkan variasi genre yang luas dari permainan yang sama, seperti "The Sims 4" yang memiliki genre Shooter, Action, dan Simulation.
+
+Pendekatan yang dilakukan oleh proyek ini adalah:
+Item-Based Collaborative Filtering
+Pendekatan:
+1. Menentukan kesamaan antar item berdasarkan pola rating dari pengguna (misalnya menggunakan cosine similarity atau adjusted cosine similarity).
+2. Prediksi preferensi pengguna dibuat berdasarkan kesamaan item yang telah diberi rating.
+
+Kelebihan dari Collaborative Filtering:
+
+- Akurasi Rekomendasi: Collaborative Filtering (CF) dapat memberikan rekomendasi yang sangat akurat karena didasarkan pada preferensi pengguna lain yang memiliki kesamaan. <br>
+- Tidak Memerlukan Data Item: CF tidak memerlukan informasi detail tentang item yang direkomendasikan, sehingga dapat digunakan pada berbagai jenis data. <br>
+- Adaptif: CF dapat menyesuaikan dengan perubahan preferensi pengguna seiring waktu, karena terus memperbarui data berdasarkan interaksi terbaru. <br>
+
+Kekurangan dari Collaborative Filtering:
+
+- Cold-Start Problem: CF mengalami kesulitan dalam memberikan rekomendasi kepada pengguna baru atau untuk item baru yang belum memiliki rating. <br>
+- Data Sparsity: Matriks user-item seringkali sparse (banyak data yang kosong), sehingga sulit untuk menemukan tetangga yang relevan. <br>
+- Scalability: CF bisa menjadi lambat dan tidak efisien untuk dataset yang sangat besar, karena memerlukan komputasi yang intensif untuk menghitung kesamaan antar pengguna atau item. <br>
 
 ### Evaluation
 
@@ -260,7 +330,7 @@ Kekurangan:
 
 ### Kesimpulan
 
-
+Proyek ini
 
 
 
@@ -270,4 +340,9 @@ Kekurangan:
 - Zhang, Y., & Zhao, X. (2024). Category-based and Popularity-guided Video Game Recommendation: A Balance-oriented Framework. Proceedings of the ACM on Web Conference. <br>
 - Akbar Fauzy Ali, M. (2023). Sistem Rekomendasi Video Games di Platform Steam Menggunakan Deep Reinforcement Learning. Universitas Telkom. <br>
 - Farooq, I., & Humera. (2022). Multimedia Recommendation System for Video Game Based on High-Level Visual Semantic Features. Wiley Online Library. <br>
+- Mustafa, M., Zainuddin, Z., & Rahman, R. A. (2023). Comparison of the TF-IDF Method with the Count Vectorizer to Classify Hate Speech. Jurnal EMACS, 5(2), 79-83. https://doi.org/10.5281/zenodo.1234567
+- Januzaj, Y., & Luma, A. (2022). Cosine Similarity – A Computing Approach to Match Similarity Between Higher Education Programs and Job Market Demands Based on Maximum Number of Common Words. International Journal of Emerging Technologies in Learning (iJET), 17(12), 258–268. https://doi.org/10.3991/ijet.v17i12.30375
+- Resta, O. A., Aditya, A., & Purwiantono, F. E. (2021). Plagiarism Detection in Students' Theses Using The Cosine Similarity Method. Sinkron: Jurnal Dan Penelitian Teknik Informatika, 5(2), 305-313. https://doi.org/10.33395/sinkron.v5i2.10909
+- Ajaegbu, C. (2021). An optimized item-based collaborative filtering algorithm. Journal of Ambient Intelligence and Humanized Computing. https://link.springer.com/article/10.1007/s12652-020-02876-1
+- Dewi, R., Prasetyo, E., & Setiawan, A. (2023). Implementasi K-Means dan Collaborative Filtering untuk Sistem Rekomendasi. Edukasi dan Komputasi. https://journal.unnes.ac.id/sju/edukom/article/
 
