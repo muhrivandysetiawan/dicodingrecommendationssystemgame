@@ -83,19 +83,160 @@ Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomen
 
 ## Analisis Univariat
 
+Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel. Tujuannya adalah untuk memahami karakteristik dasar dari variabel tersebut, seperti distribusi, rata-rata, median, dan standar deviasi. Contoh analisis univariat adalah menghitung rata-rata harga game atau distribusi rating pengguna.
+
+| Statistic | User Rating | Price | Release Year | Game Length (Hours) | Min Number of Players |
+|-----------|-------------|-------|--------------|---------------------|-----------------------|
+| count     | 47774.000000| 47774.000000| 47774.000000| 47774.000000| 47774.000000|
+| mean      | 29.719329   | 39.951371   | 2016.480952   | 32.481672   | 5.116758   |
+| std       | 7.550131    | 11.520342   | 4.027276      | 15.872508   | 2.769521   |
+| min       | 10.100000   | 19.990000   | 2010.000000   | 5.000000    | 1.000000   |
+| 25%       | 24.300000   | 29.990000   | 2013.000000   | 18.800000   | 3.000000   |
+| 50%       | 29.700000   | 39.845000   | 2016.000000   | 32.500000   | 5.000000   |
+| 75%       | 35.100000   | 49.957500   | 2020.000000   | 46.300000   | 7.000000   |
+| max       | 49.500000   | 59.990000   | 2023.000000   | 60.000000   | 10.000000  |
+ <br>
+Tabel di atas menampilkan statistik deskriptif untuk berbagai atribut game, termasuk peringkat pengguna, harga, tahun rilis, durasi permainan, dan jumlah pemain minimum. Setiap baris menampilkan statistik tertentu, seperti jumlah data, rata-rata, standar deviasi, nilai minimum, kuartil pertama, median, kuartil ketiga, dan nilai maksimum. Data ini membantu memahami distribusi dan fitur dataset game yang dianalisis. <br>
+
+![Gambar 1](https://github.com/user-attachments/assets/1e191fc1-10a5-4eef-9ab6-669f8b477b08)
+
+Gambar 1. Diagram Distribusi Harga Game
+
+Gambar di atas menunjukkan distribusi harga game dalam bentuk histogram dengan kurva distribusi yang dihaluskan. Sumbu horizontal (x) mewakili harga game, sedangkan sumbu vertikal (y) menunjukkan jumlah game. Histogram ini menunjukkan bahwa jumlah game relatif merata di berbagai rentang harga, dengan sedikit penurunan di harga terendah dan tertinggi.
+
+![Gambar 2](https://github.com/user-attachments/assets/51012046-8d46-48eb-82dd-fc1551c0cf05)
+
+Gambar 2. Diagram Distribusi User Rating
+
+Gambar di atas menunjukkan distribusi rating pengguna untuk sebuah game, dengan sumbu horizontal mewakili rating pengguna dari 10 hingga 50 dan sumbu vertikal mewakili jumlah game. Distribusi ini berbentuk kurva lonceng, menunjukkan bahwa sebagian besar game memiliki rating pengguna di sekitar 30. Ini menarik karena menunjukkan bahwa rating pengguna cenderung berkumpul di sekitar nilai tengah, dengan sedikit game yang memiliki rating sangat rendah atau sangat tinggi.
+
+![Gambar 3](https://github.com/user-attachments/assets/f03ed641-31a6-4e92-873c-1f29693b7d85)
+
+Gambar 3. Diagram Distribusi Tahun Rilis
+
+Gambar di atas menunjukkan distribusi jumlah game yang dirilis setiap tahun dari 2010 hingga 2022. Grafik batang biru menunjukkan jumlah game yang dirilis setiap tahun, yang berkisar sekitar 3500 game per tahun. Garis biru di tengah grafik menunjukkan tren jumlah game yang dirilis, yang relatif stabil di sekitar 1500 game per tahun.
+
+![Gambar 4](https://github.com/user-attachments/assets/b9133f60-1ae5-4ed6-adf6-7b6cef9305bb)
+
+Gambar 4. Diagram Distribusi Game Length
+
+Gambar di atas menunjukkan distribusi panjang permainan dalam bentuk histogram dengan garis kurva yang menghaluskan data. Sumbu horizontal (x) mewakili panjang permainan, sedangkan sumbu vertikal (y) menunjukkan jumlah permainan. Grafik ini menunjukkan bahwa jumlah permainan relatif merata di berbagai panjang permainan, dengan sedikit penurunan di ujung-ujung distribusi.
+
+![Gambar 5](https://github.com/user-attachments/assets/61ce6616-80b4-4482-89c9-165496d0d948)
+
+Gambar 5. Diagram Distribusi Jumlah Pemain
+
+Gambar di atas menunjukkan distribusi jumlah pemain dalam game dengan minimal jumlah pemain dari 2 hingga 10. Grafik batang menunjukkan jumlah game yang dimainkan pada setiap jumlah pemain minimal, yang semuanya berada di sekitar 5000 game. Garis biru menunjukkan fluktuasi jumlah game yang dimainkan, dengan pola naik turun yang konsisten di sekitar 1000 hingga 2000 game.
+
+![Gambar 6](https://github.com/user-attachments/assets/afafb3c3-a4aa-455e-9260-309d3d8c4b01)
+
+Gambar 6. Diagram Distribusi Kualitas Grafik
+
+Gambar di atas menunjukkan distribusi kualitas grafik dari berbagai game dalam empat kategori: Medium, Low, High, dan Ultra. Grafik batang menunjukkan jumlah game dalam setiap kategori, sementara garis kurva menunjukkan distribusi frekuensi yang lebih halus. Grafik ini memberikan gambaran visual tentang bagaimana kualitas grafik game terdistribusi dan seberapa banyak game yang termasuk dalam setiap kategori.
+
+![Gambar 7](https://github.com/user-attachments/assets/7efe223d-7342-4950-a080-02ad36720b64)
+
+Gambar 7. Diagram Distribusi Kualitas Soundtrack
+
+Gambar di atas menunjukkan distribusi kualitas soundtrack dalam game berdasarkan jumlah game. Histogram menunjukkan jumlah game dengan kualitas soundtrack yang berbeda (Average, Poor, Good, Excellent), sementara kurva distribusi menggambarkan pola distribusi data tersebut. Grafik ini menunjukkan bahwa meskipun jumlah game dengan kualitas soundtrack yang berbeda relatif sama, pola distribusi menunjukkan variasi yang signifikan dalam jumlah game pada setiap kategori kualitas.
+
+![Gambar 8](https://github.com/user-attachments/assets/06fecd3e-a311-40d0-b1e5-dea31bfa3faa)
+
+Gambar 8. Diagram Distribusi Kualitas Cerita
+
+Gambar di atas menunjukkan distribusi kualitas cerita dari sejumlah game. Grafik ini menggabungkan histogram dan kurva distribusi, di mana sumbu horizontal mewakili kategori kualitas cerita (Poor, Average, Excellent, Good) dan sumbu vertikal menunjukkan jumlah game. Terlihat bahwa jumlah game relatif merata di setiap kategori kualitas cerita, dengan puncak kurva distribusi yang tinggi pada setiap batas kategori.
+
+![Gambar 9](https://github.com/user-attachments/assets/7aeba835-bd86-4cba-979c-3b0d659db6e8)
+
+Gambar 9. Diagram Top 10 Genre
+
+Gambar di atas menunjukkan diagram batang yang menggambarkan 10 genre game teratas berdasarkan jumlah game. Setiap genre memiliki jumlah game yang hampir sama, sekitar 5000 game. Genre yang ditampilkan meliputi RPG, Shooter, Strategy, Puzzle, Simulation, Adventure, Party, Sports, Fighting, dan Action.
 
 
 ## Analisis Multivariat
 
+Analisis Multivariat melibatkan lebih dari satu variabel dan bertujuan untuk memahami hubungan antara variabel-variabel tersebut. Analisis ini lebih kompleks dan dapat mencakup teknik seperti regresi berganda, analisis faktor, dan analisis klaster. Contoh analisis multivariat adalah mengkaji bagaimana harga, rating pengguna, dan tahun rilis bersama-sama mempengaruhi popularitas game.
 
- 
+![Gambar 10](https://github.com/user-attachments/assets/8ae6b963-e71f-490f-af66-bdab6485956e)
+
+Gambar 10. Diagram Hubungan Rating dan Harga
+
+Gambar di atas adalah scatter plot yang menunjukkan hubungan antara User Rating dan Price. Scatter plot ini memperlihatkan bahwa terdapat korelasi positif antara harga dan rating pengguna, di mana harga yang lebih tinggi cenderung memiliki rating pengguna yang lebih tinggi. Hal ini menarik karena menunjukkan bahwa produk dengan harga lebih tinggi mungkin dianggap lebih bernilai oleh pengguna.
+
+![Gambar 11](https://github.com/user-attachments/assets/de4c18a9-29be-4b37-8d93-026f3ec46dec)
+
+Gambar 11. Diagram Hubungan User Rating dan Tahun Rilis
+
+Gambar di atas adalah scatter plot yang menunjukkan hubungan antara "User Rating" dan "Release Year" dari tahun 2010 hingga 2022. Setiap titik pada grafik mewakili rating pengguna untuk suatu tahun rilis tertentu, dengan sumbu x menunjukkan tahun rilis dan sumbu y menunjukkan rating pengguna. Grafik ini menunjukkan bahwa distribusi rating pengguna cukup merata di setiap tahun rilis, tanpa ada tren yang jelas meningkat atau menurun dari waktu ke waktu.
+
+![Gambar 12](https://github.com/user-attachments/assets/841bf154-5cc9-4b02-a971-d093d6d5a858)
+
+Gambar 12. Diagram Hubungan User Rating dan Genre
+
+Gambar di atas menunjukkan diagram kotak (box plot) yang membandingkan rating pengguna berdasarkan genre permainan. Setiap kotak mewakili distribusi rating pengguna untuk genre tertentu, dengan garis tengah menunjukkan median, dan garis vertikal menunjukkan rentang minimum dan maksimum. Diagram ini menarik karena memberikan gambaran visual tentang bagaimana rating pengguna bervariasi di antara berbagai genre permainan.
+
+![Gambar 13](https://github.com/user-attachments/assets/df6cfaa9-7e75-4b0f-8bda-cf7b3d3a1534)
+
+Gambar 13. Diagram Hubungan User Rating dan Genre
+
+Gambar di atas menunjukkan hubungan antara fitur multiplayer pada sebuah permainan ("Yes" atau "No") dengan rating pengguna. Distribusi rating tampak tersebar merata pada kedua kategori, menunjukkan bahwa fitur multiplayer tidak secara langsung memengaruhi tingkat rating pengguna. Hal ini mengindikasikan bahwa faktor lain mungkin lebih berperan dalam menentukan rating pengguna.
+
+![Gambar 14](https://github.com/user-attachments/assets/a4989706-eb5f-4caf-a9b2-f191e9253d25)
+
+Gambar 14. Diagram Matrix Korelasi
+
+Gambar di atas menunjukkan matriks korelasi dari fitur numerik yang terkait dengan permainan. Matriks ini mengilustrasikan hubungan antara harga, rating pengguna, tahun rilis, panjang permainan (jam), dan jumlah pemain minimum. Korelasi yang tinggi terlihat antara harga dan rating pengguna (0.76) serta antara rating pengguna dan panjang permainan (0.63), menunjukkan bahwa harga dan panjang permainan mungkin mempengaruhi rating pengguna.
+
 ### Data Preparation
 
+Sistem Rekomendasi:
 
-- Menerapkan dan menyebutkan teknik data preparation yang dilakukan. <br>
-- Teknik yang digunakan pada notebook dan laporan harus berurutan. <br>
-- Menjelaskan proses data preparation yang dilakukan. <br>
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut. <br>
+Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. Sistem ini menggunakan dua algoritma yang berbeda, yaitu Content-Based Filtering dan Collaborative Filtering, untuk memberikan rekomendasi game kepada pengguna berdasarkan preferensi mereka.
+
+| Game Title                        | Genre    | User Rating | Price |
+|-----------------------------------|----------|-------------|-------|
+| Just Dance 2024                   | Action   | 49.5        | 59.17 |
+| Street Fighter V                  | Puzzle   | 49.3        | 59.34 |
+| Hades                             | Shooter  | 49.3        | 59.76 |
+| Kingdom Hearts III                | Fighting | 49.3        | 59.87 |
+| Counter-Strike: Global Offensive  | Party    | 49.2        | 59.98 |
+
+Tabel di atas sudah disiapkan untuk dimasukkan ke dalam 2 algoritma. 
+
+Top-N Recommendation:
+
+Kedua algoritma yang diimplementasikan dalam proyek ini menghasilkan top-N recommendation sebagai output. Artinya, sistem akan memberikan daftar N game yang paling direkomendasikan kepada pengguna. Jumlah rekomendasi (N) dapat dikonfigurasi sesuai kebutuhan. Pada kode yang Anda berikan, top_n diset ke 10, yang berarti sistem akan merekomendasikan 10 game teratas.
+
+Dua Solusi Rekomendasi dengan Algoritma Berbeda:
+
+Content-Based Filtering: Algoritma ini merekomendasikan game yang serupa dengan game yang disukai pengguna sebelumnya. Algoritma ini menganalisis fitur-fitur game, seperti genre, platform, dan pengembang, untuk menemukan game yang sesuai dengan preferensi pengguna. Dalam kode Anda, Content-Based Filtering diimplementasikan menggunakan TF-IDF untuk membuat representasi vektor dari fitur game dan Cosine Similarity untuk mengukur kesamaan antar game.
+
+Collaborative Filtering (Item-Based): Algoritma ini merekomendasikan game yang disukai oleh pengguna lain yang memiliki selera serupa dengan pengguna target. Algoritma ini menggunakan data rating pengguna untuk menemukan pengguna yang memiliki selera serupa dan kemudian merekomendasikan game yang disukai oleh pengguna tersebut. Dalam kode Anda, Collaborative Filtering (Item-Based) diimplementasikan menggunakan matriks item-item yang berisi rating rata-rata pengguna untuk setiap game dalam setiap genre dan Cosine Similarity untuk mengukur kesamaan antar game.
+
+Kelebihan dan Kekurangan Pendekatan yang Dipilih:
+
+Content-Based Filtering:
+
+Kelebihan:
+Mudah diimplementasi dan dipahami.<br>
+Hanya membutuhkan data dari satu pengguna, tidak seperti Collaborative Filtering.<br>
+Dapat merekomendasikan item niche yang tidak populer di antara pengguna lain.<br>
+
+Kekurangan:
+-Rentan terhadap "filter bubble" di mana pengguna hanya direkomendasikan item yang serupa dengan yang mereka sukai sebelumnya.<br>
+-Membutuhkan data konten yang kaya dan terstruktur. <br>
+-Sulit untuk merekomendasikan item di luar preferensi pengguna yang sudah ada.<br>
+
+Collaborative Filtering (Item-Based): <br>
+
+Kelebihan:
+-Dapat memberikan rekomendasi yang mengejutkan dan tidak terduga. <br>
+-Tidak memerlukan data konten yang detail. <br>
+-Akurasi rekomendasi meningkat seiring dengan bertambahnya data pengguna. <br>
+Kekurangan:
+-Cold start problem: Sulit untuk memberikan rekomendasi kepada pengguna baru atau item baru yang belum memiliki rating. <br>
+-Data sparsity: Matriks user-item seringkali sparse (banyak data yang kosong), sehingga sulit untuk menemukan tetangga yang relevan. <br>
+-Scalability: Model Collaborative Filtering bisa menjadi lambat dan tidak efisien untuk dataset yang sangat besar. <br>
 
 
 ### Modeling and Result
