@@ -32,155 +32,63 @@ Untuk mencapai goals, dua pendekatan solusi utama akan diimplementasikan:
 
 ### Data Understanding
 
-Berikut ini merupakan informasi data untuk menunjnag proyek pada tabel di bawah ini:
+Berikut ini merupakan informasi data untuk menunjnang proyek pada tabel di bawah ini:
+| No | Kolom                  | Tipe Data       | Deskripsi                                                                 |
+|----|------------------------|-----------------|--------------------------------------------------------------------------|
+| 0  | Game Title             | object          | Judul dari game.                                                         |
+| 1  | User Rating            | float64         | Rating yang diberikan oleh pengguna (skala 0-10).                        |
+| 2  | Age Group Targeted     | object          | Kelompok usia yang menjadi target dari game.                             |
+| 3  | Price                  | float64         | Harga game dalam dolar.                                                  |
+| 4  | Platform               | object          | Platform tempat game tersedia (misalnya, PC, Xbox, PlayStation).         |
+| 5  | Requires Special Device| object          | Apakah game memerlukan perangkat khusus (misalnya, VR headset).          |
+| 6  | Developer              | object          | Pengembang game.                                                         |
+| 7  | Publisher              | object          | Penerbit game.                                                           |
+| 8  | Release Year           | int64           | Tahun rilis game.                                                        |
+| 9  | Genre                  | object          | Genre atau kategori game (misalnya, Action, Adventure).                  |
+| 10 | Multiplayer            | object          | Apakah game mendukung mode multiplayer (Ya/Tidak).                       |
+| 11 | Game Length (Hours)    | float64         | Durasi permainan dalam jam.                                              |
+| 12 | Graphics Quality       | object          | Kualitas grafis game (misalnya, Low, Medium, High).                      |
+| 13 | Soundtrack Quality     | object          | Kualitas soundtrack game (misalnya, Poor, Average, Good).                |
+| 14 | Story Quality          | object          | Kualitas cerita dalam game (misalnya, Poor, Average, Good).              |
+| 15 | User Review Text       | object          | Teks ulasan dari pengguna.                                               |
+| 16 | Game Mode              | object          | Mode permainan (misalnya, Single-player, Multiplayer).                   |
+| 17 | Min Number of Players  | int64           | Jumlah minimum pemain yang dibutuhkan untuk bermain.                     |
 
-### 1. Dataset Informasi Game
-| Kolom           | Jumlah Non-Null | Tipe Data | Deskripsi |
-|-----------------|-----------------|-----------|-----------|
-| app_id          | 50872           | int64     | ID unik dari game |
-| title           | 50872           | object    | Judul game |
-| date_release    | 50872           | object    | Tanggal rilis game |
-| win             | 50872           | bool      | Tersedia di platform Windows |
-| mac             | 50872           | bool      | Tersedia di platform MacOS |
-| linux           | 50872           | bool      | Tersedia di platform Linux |
-| rating          | 50872           | object    | Rating dari game |
-| positive_ratio  | 50872           | int64     | Rasio ulasan positif |
-| user_reviews    | 50872           | int64     | Jumlah ulasan pengguna |
-| price_final     | 50872           | float64   | Harga akhir setelah diskon |
-| price_original  | 50872           | float64   | Harga asli dari game |
-| discount        | 50872           | float64   | Diskon yang diberikan |
-| steam_deck      | 50872           | bool      | Tersedia di platform Steam Deck |
-
-### 2. Dataset Ulasan Pengguna
-| Kolom           | Jumlah Non-Null | Tipe Data | Deskripsi |
-|-----------------|-----------------|-----------|-----------|
-| app_id          | 41154794        | int64     | ID unik dari game |
-| helpful         | 41154794        | int64     | Jumlah pengguna yang merasa ulasan ini bermanfaat |
-| funny           | 41154794        | int64     | Jumlah pengguna yang merasa ulasan ini lucu |
-| date            | 41154794        | object    | Tanggal ulasan dibuat |
-| is_recommended  | 41154794        | bool      | Apakah ulasan ini merekomendasikan game tersebut |
-| hours           | 41154794        | float64   | Jumlah jam yang dimainkan oleh pengguna |
-| user_id         | 41154794        | int64     | ID unik dari pengguna |
-| review_id       | 41154794        | int64     | ID unik dari ulasan |
-
-### 3. Dataset Informasi Pengguna
-| Kolom    | Jumlah Non-Null | Tipe Data | Deskripsi |
-|----------|------------------|-----------|-----------|
-| user_id  | 14306064        | int64     | ID unik dari pengguna |
-| products | 14306064        | int64     | Jumlah produk yang dimiliki oleh pengguna |
-| reviews  | 14306064        | int64     | Jumlah ulasan yang telah dibuat oleh pengguna |
-
-Proyek ini diseleksi menjadi 5000 data dari semua jumlah data yang tersedia karena data di atas cukup banyak dan bisa menyebbakan crash ketika melakukan komputasi. Sleain itu, seleksi ini ditujukan agar komputasi bisa berjalan lancar dibandingkan harus menggunakan semua data.
+Jumlah dari data di setipa kolomnya adalah 47774 buah.
 
 Ini adalah sebuah tautan untuk merancang proyek adalah sebagai berikut: <br>
-https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam
+[https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam](https://www.kaggle.com/datasets/jahnavipaliwal/video-game-reviews-and-ratings)
 
 Berikut ini adalah penjelasan tabel yang diambil secara mendalam adalah tabel sebagai berikut:
-
-1. Tabel games <br>
-Tabel ini berisi informasi tentang game-game yang ada di Steam. Variabel-variabelnya adalah: <br>
-app_id: ID unik untuk setiap game di Steam (tipe data: int64). <br>
-title: Judul game (tipe data: object). <br>
-date_release: Tanggal rilis game (tipe data: object, dapat diubah ke datetime64[ns]). <br>
-win: Apakah game tersedia di Windows (True/False) (tipe data: bool). <br>
-mac: Apakah game tersedia di macOS (True/False) (tipe data: bool). <br>
-linux: Apakah game tersedia di Linux (True/False) (tipe data: bool). <br>
-rating: Rating game (0-100) (tipe data: int64). <br>
-positive_ratio: Rasio ulasan positif (0-100) (tipe data: int64). <br>
-user_reviews: Jumlah total ulasan pengguna (tipe data: int64). <br>
-price_final: Harga akhir game setelah perubahan (tipe data: float64). <br>
-price_original: Harga asli game sebelum perubahan (tipe data: float64). <br>
-discount: Persentase diskon (tipe data: float64). <br>
-steam_deck: Apakah game kompatibel dengan Steam Deck (True/False) (tipe data: bool). <br>
-
-2. Tabel recommendations <br>
-Tabel ini berisi rekomendasi game dari pengguna. Variabel-variabelnya adalah: <br>
-app_id: ID unik untuk setiap game di Steam (tipe data: int64). <br>
-helpful: Jumlah pengguna yang menganggap ulasan ini membantu (tipe data: int64). <br>
-funny: Jumlah pengguna yang menganggap ulasan ini lucu (tipe data: int64).<br>
-date: Tanggal ulasan dibuat (tipe data: object, dapat diubah ke datetime). <br>
-is_recommended: Apakah pengguna merekomendasikan game ini (True/False) (tipe data: bool). <br>
-hours: Jumlah jam pengguna telah memainkan game ini (tipe data: float64). <br>
-user_id: ID unik untuk setiap pengguna yang menulis ulasan (tipe data: int64). <br>
-review_id: ID unik untuk setiap ulasan (tipe data: int64). <br>
-
-3. Tabel user <br>
-Tabel ini berisi informasi tentang pengguna. Variabel-variabelnya adalah: <br>
-user_id: Pengenal unik untuk setiap pengguna. <br>
-products: Jumlah produk yang terkait dengan pengguna. <br>
-reviews: Jumlah ulasan yang ditulis oleh pengguna. <br>
+1. Game Title: Nama game. <br>
+2. User Rating: Rating yang diberikan oleh pengguna, dalam format float. <br>
+3. Age Group Targeted: Kelompok usia yang menjadi target game.<br>
+4. Price: Harga game, dalam format float. <br>
+5. Platform: Platform tempat game tersedia (misalnya, PC, PlayStation, Xbox). <br>
+6. Requires Special Device: Apakah game memerlukan perangkat khusus (misalnya, VR headset). <br>
+7. Developer: Pengembang game. <br>
+8. Publisher: Penerbit game. <br>
+9. Release Year: Tahun rilis game. <br>
+10. Genre: Genre atau kategori game (misalnya, Action, Adventure, RPG). <br>
+11. Multiplayer: Apakah game mendukung mode multiplayer. <br>
+12. Game Length (Hours): Durasi permainan dalam jam. <br>
+13. Graphics Quality: Kualitas grafis game. <br>
+14. Soundtrack Quality: Kualitas soundtrack game. <br>
+15. Story Quality: Kualitas cerita game. <br>
+16. User Review Text: Teks ulasan dari pengguna. <br>
+17. Game Mode: Mode permainan (misalnya, Single Player, Multiplayer). <br>
+18. Min Number of Players: Jumlah minimum pemain yang diperlukan untuk memainkan game. <br>
 
 Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomendasi adalah sebagai berikut:
 
 ## Analisis Univariat
 
 
-![download](https://github.com/user-attachments/assets/7806b72b-aab8-4853-a43c-49af3bf81487)
-
-
-Analisis harga akhir setelah diskon dapat menunjukkan rentang harga game yang paling umum di Steam. Distribusi harga dapat memperlihatkan seberapa banyak game yang tergolong mahal, menengah, atau murah. Rata-rata dan median harga juga dapat dihitung untuk melihat apakah distribusinya terpusat atau miring.
-
-
-![download (1)](https://github.com/user-attachments/assets/db794ab1-336d-4d1c-81db-903118e137af)
-
-
-Menampilkan distribusi rasio ulasan positif membantu melihat bagaimana sebagian besar game diterima oleh pengguna. Apakah lebih banyak game yang memiliki rasio ulasan positif tinggi atau rendah? Ini dapat menjadi indikator kualitas umum dari game yang tersedia.
-
-
-![download (2)](https://github.com/user-attachments/assets/17782af1-3a54-4e5a-9ed3-45b044d4e813)
-
-
-
-Dengan menghitung frekuensi distribusi untuk setiap platform (Windows, MacOS, Linux, Steam Deck), kita bisa memahami game mana yang paling banyak tersedia dan berapa banyak game yang eksklusif untuk platform tertentu.
-
-
-![download (3)](https://github.com/user-attachments/assets/618856ee-eee2-401e-bf06-85f25ba8e485)
-
-
-Memvisualisasikan distribusi rating membantu memahami kualitas umum dari game-game yang ada di Steam. Rating dapat diubah menjadi skor numerik jika memiliki banyak kategori untuk mempermudah analisis lebih lanjut.
-
-
-![download (4)](https://github.com/user-attachments/assets/8a0146d4-eb09-4377-847c-6434de16129d)
-
-
-Melakukan analisis distribusi jumlah jam bermain menunjukkan seberapa sering dan lama rata-rata pengguna memainkan game. Distribusi ini juga dapat mengidentifikasi pengguna aktif dan casual.
-
-
-![download (5)](https://github.com/user-attachments/assets/5e552a56-6364-47b5-a880-7011c06194d9)
-
-
-Analisis ini merupakan analisis dimana 10 game terbaik dalam Steam. 
-
 
 ## Analisis Multivariat
 
 
-![download (6)](https://github.com/user-attachments/assets/7b6ff39f-3e0f-4a36-b308-b1bfb37f2888)
-
-
-Korelasi antara variabel discount dan price_final dengan jumlah ulasan (user_reviews) dapat membantu menganalisis apakah diskon mempengaruhi popularitas atau pembelian game. Penurunan harga (diskon) biasanya berkaitan dengan kenaikan pembelian, dan analisis ini bisa menunjukkan korelasinya.
-
-
-![download (7)](https://github.com/user-attachments/assets/043e9cce-86c4-42cb-8a0d-c8e07c869338)
-
-
-Memeriksa korelasi antara rasio ulasan positif dan jumlah jam bermain menunjukkan apakah game dengan ulasan positif cenderung memiliki pengguna yang menghabiskan lebih banyak waktu di dalam game. Game yang bagus umumnya memiliki review positif dan waktu bermain yang tinggi.
-
-
-![download (8)](https://github.com/user-attachments/assets/3c80915e-b4f0-4f22-ad70-3a291c393f75)
-
-
-Meneliti korelasi antara harga game dan rasio ulasan positif membantu melihat apakah harga game memengaruhi persepsi kualitas game. Game yang lebih murah mungkin lebih terjangkau tetapi belum tentu memiliki rasio ulasan positif yang tinggi.
-
-
-![download (9)](https://github.com/user-attachments/assets/60faf6ce-f9e3-4582-8fa2-72b0687b9fb3)
-![download (10)](https://github.com/user-attachments/assets/5f3f2884-66b4-4002-b409-e58138804176)
-
-
-Melakukan analisis jumlah rekomendasi ulasan dari pengguna berdasarkan platform dapat menunjukkan platform mana yang lebih disukai atau populer di kalangan pemain.
-
-
-
+ 
 ### Data Preparation
 
 
