@@ -320,18 +320,64 @@ Kekurangan dari Collaborative Filtering:
 
 ### Evaluation
 
+Proyek ini menggunakan tiga metrik evaluasi utama:
 
-- Menyebutkan metrik evaluasi yang digunakan.
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi.
-- Metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-- Menjelaskan metrik evaluasi yang digunakan untuk mengukur kinerja model (formula dan cara metrik tersebut bekerja).
+Presisi (Precision): Mengukur proporsi rekomendasi yang relevan dari semua rekomendasi yang diberikan.
+Recall: Mengukur proporsi rekomendasi yang relevan dari semua item yang relevan dalam dataset.
+Skor F1 (F1-Score): Rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara keduanya.
 
+Berikut ini adalah rumus dari evaluasi dari proyek ini:
+Presisi: Mengukur proporsi prediksi positif yang benar dari semua prediksi positif.
 
+![Gambar 17](https://github.com/user-attachments/assets/5a98efc6-d01d-4262-83ee-0dc12282c5ad)
+
+Gambar 17. Gambar Rumus Presisi
+
+Di mana TP adalah True Positives dan FP adalah False Positives
+
+Recall: Mengukur proporsi prediksi positif yang benar dari semua kasus positif aktual.
+
+![Gambar 18](https://github.com/user-attachments/assets/c26eb73a-4317-4f28-a782-6fda7b3454ef)
+
+Gambar 18. Gambar Rumus Presisi
+
+Di mana TP adalah True Positives dan FN adalah False Negatives
+
+Skor F1 (F1-Score): Rata-rata harmonis dari presisi dan recall, memberikan keseimbangan antara keduanya.
+
+![Gambar 19](https://github.com/user-attachments/assets/4698f649-1d05-4506-8a03-ff51649163ca)
+
+Gambar 19. Rumus Skor F1
+
+Skor F1 memberikan satu nilai yang menggabungkan kedua metrik tersebut
+
+Berikut ini adala hasil dari Content Based dan Collaborative Filtering
+
+![Gambar 20](https://github.com/user-attachments/assets/df22bf93-69d8-47ef-a591-410f63132f3d)
+
+Gambar 20. Hasil Evaluasi Content Based
+
+![Gambar 21](https://github.com/user-attachments/assets/4d34bacc-3615-4ee3-b30d-d1bf9946f27a)
+
+Gambar 21. Hasil Evaluasi Content Based
+
+Berdasarkan hasil evaluasi yang ditunjukkan, baik model Content-Based Filtering maupun Collaborative Filtering mendapatkan skor sempurna (1.0) untuk Precision, Recall, dan F1-Score.
+
+Namun, perlu diingat bahwa skor ini didapat berdasarkan ground truth yang sangat sederhana dan mungkin tidak merepresentasikan skenario penggunaan yang sebenarnya. Dalam ground truth, hanya ada satu game ('Grand Theft Auto V') dengan satu rekomendasi ('Red Dead Redemption 2'). Oleh karena itu, hasil evaluasi ini perlu diinterpretasikan dengan hati-hati.
+
+Meskipun skor sempurna menunjukkan performa model yang baik pada data uji yang terbatas, pengujian lebih lanjut dengan data ground truth yang lebih komprehensif dan beragam sangat diperlukan untuk memastikan keandalan dan akurasi sistem rekomendasi dalam skenario penggunaan nyata.
+
+Metrik-metrik yang digunakan (Precision, Recall, dan F1-Score) sesuai dengan konteks data, problem statement, dan solusi yang diinginkan karena:
+- Data: Dataset yang digunakan berisi informasi tentang game, genre, dan rating pengguna, yang memungkinkan untuk mengukur relevansi rekomendasi.
+- Problem Statement: Sistem rekomendasi bertujuan untuk memberikan rekomendasi game yang personal dan relevan kepada pengguna Steam. Metrik-metrik ini membantu dalam mengukur seberapa baik sistem mencapai tujuan tersebut.
+- Solusi: Sistem rekomendasi menggunakan Content-Based Filtering dan Collaborative Filtering untuk menghasilkan rekomendasi. Metrik-metrik ini membantu dalam mengevaluasi kinerja kedua model tersebut.
+
+Saran untuk evaluasi lebih lanjut. Untuk mendapatkan evaluasi yang lebih komprehensif, berikut beberapa saran:
+1. Perluas Ground Truth: Gunakan data ground truth yang lebih luas dan beragam untuk menguji model pada berbagai skenario penggunaan.
+2. Gunakan Metrik Lain: Pertimbangkan untuk menggunakan metrik lain seperti Mean Average Precision (MAP) atau Normalized Discounted Cumulative Gain (NDCG) untuk mendapatkan perspektif yang berbeda tentang performa model.
+3. Evaluasi Kualitatif: Lakukan evaluasi kualitatif dengan meminta pengguna untuk memberikan feedback langsung terhadap rekomendasi yang diberikan oleh sistem.
 
 ### Kesimpulan
-
-Proyek ini
-
 
 
 ### Referensi
