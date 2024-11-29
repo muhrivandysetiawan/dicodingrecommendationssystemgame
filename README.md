@@ -33,31 +33,49 @@ Untuk mencapai goals, dua pendekatan solusi utama akan diimplementasikan:
 ### Data Understanding
 
 Berikut ini merupakan informasi data untuk menunjnang proyek pada tabel di bawah ini:
-| No | Kolom                  | Tipe Data       | Deskripsi                                                                 |
-|----|------------------------|-----------------|--------------------------------------------------------------------------|
-| 0  | Game Title             | object          | Judul dari game.                                                         |
-| 1  | User Rating            | float64         | Rating yang diberikan oleh pengguna (skala 0-10).                        |
-| 2  | Age Group Targeted     | object          | Kelompok usia yang menjadi target dari game.                             |
-| 3  | Price                  | float64         | Harga game dalam dolar.                                                  |
-| 4  | Platform               | object          | Platform tempat game tersedia (misalnya, PC, Xbox, PlayStation).         |
-| 5  | Requires Special Device| object          | Apakah game memerlukan perangkat khusus (misalnya, VR headset).          |
-| 6  | Developer              | object          | Pengembang game.                                                         |
-| 7  | Publisher              | object          | Penerbit game.                                                           |
-| 8  | Release Year           | int64           | Tahun rilis game.                                                        |
-| 9  | Genre                  | object          | Genre atau kategori game (misalnya, Action, Adventure).                  |
-| 10 | Multiplayer            | object          | Apakah game mendukung mode multiplayer (Ya/Tidak).                       |
-| 11 | Game Length (Hours)    | float64         | Durasi permainan dalam jam.                                              |
-| 12 | Graphics Quality       | object          | Kualitas grafis game (misalnya, Low, Medium, High).                      |
-| 13 | Soundtrack Quality     | object          | Kualitas soundtrack game (misalnya, Poor, Average, Good).                |
-| 14 | Story Quality          | object          | Kualitas cerita dalam game (misalnya, Poor, Average, Good).              |
-| 15 | User Review Text       | object          | Teks ulasan dari pengguna.                                               |
-| 16 | Game Mode              | object          | Mode permainan (misalnya, Single-player, Multiplayer).                   |
-| 17 | Min Number of Players  | int64           | Jumlah minimum pemain yang dibutuhkan untuk bermain.                     |
+|   Column                   | Non-Null Count  | Dtype   |
+|----------------------------|-----------------|---------|
+| Game Title                 | 47774           | object  |
+| User Rating                | 47774           | float64 |
+| Age Group Targeted         | 47774           | object  |
+| Price                      | 47774           | float64 |
+| Platform                   | 47774           | object  |
+| Requires Special Device    | 47774           | object  |
+| Developer                  | 47774           | object  |
+| Publisher                  | 47774           | object  |
+| Release Year               | 47774           | int64   |
+| Genre                      | 47774           | object  |
+| Multiplayer                | 47774           | object  |
+| Game Length (Hours)        | 47774           | float64 |
+| Graphics Quality           | 47774           | object  |
+| Soundtrack Quality         | 47774           | object  |
+| Story Quality              | 47774           | object  |
+| User Review Text           | 47774           | object  |
+| Game Mode                  | 47774           | object  |
+| Min Number of Players      | 47774           | int64   |
 
-Jumlah dari data di setipa kolomnya adalah 47774 buah.
+Jumlah dari data di setiap kolomnya adalah 47774 buah. Tidak ada missing value dan hanya ada data duplikat dari game title namun ada perbedaaan data dari kolom yang lain.
+
+Berikut ini adalah hasil ketika sedang melakuakn pencarian nama dari game Spelunky 2:
+
+| Game Title  | User Rating | Age Group Targeted | Price | Platform        | Requires Special Device | Developer        | Publisher        | Release Year | Genre     | Multiplayer | Game Length (Hours) | Graphics Quality | Soundtrack Quality | Story Quality | User Review Text                                | Game Mode | Min Number of Players |
+|-------------|-------------|--------------------|-------|-----------------|------------------------|------------------|------------------|--------------|-----------|--------------|---------------------|------------------|--------------------|---------------|------------------------------------------------|-----------|-----------------------|
+| Spelunky 2  | 29.3        | Adults             | 27.76 | Mobile          | No                     | Capcom           | Capcom           | 2017         | Adventure | No           | 57.0                | Medium           | Excellent          | Good          | Amazing game, but the gameplay is amazing.      | Offline   | 1                     |
+| Spelunky 2  | 30.7        | All Ages           | 45.94 | PC              | Yes                    | Bungie           | Epic Games       | 2016         | Adventure | No           | 20.9                | Medium           | Good               | Poor          | Great game, but the graphics could be better.   | Offline   | 10                    |
+| Spelunky 2  | 36.4        | Adults             | 35.69 | PlayStation     | Yes                    | Game Freak       | Activision       | 2013         | Fighting  | Yes          | 56.9                | Ultra            | Average            | Excellent     | Great game, but too many bugs.                  | Offline   | 2                     |
+| Spelunky 2  | 32.7        | Teens              | 48.32 | Mobile          | Yes                    | Epic Games       | Electronic Arts  | 2020         | Action    | Yes          | 32.7                | Ultra            | Poor               | Excellent     | Amazing game, but too many bugs.                | Offline   | 7                     |
+| Spelunky 2  | 23.3        | Kids               | 25.50 | PlayStation     | Yes                    | Capcom           | Square Enix      | 2019         | Fighting  | Yes          | 38.7                | Low              | Average            | Poor          | Amazing game, but the graphics could be better. | Online    | 8                     |
+| ----------  | ----        | -----              | ----- | --              | ---                    | --------------   | ------           | ----         | --------  | ---          | ----                | ----             | -------            | -------       | -----                                           | ------    | ---                   |
+| Spelunky 2  | 44.0        | Teens              | 53.69 | PC              | Yes                    | CD Projekt Red   | Capcom           | 2014         | Strategy  | Yes          | 56.1                | High             | Average            | Average       | Amazing game, but too many bugs.                | Offline   | 7                     |
+| Spelunky 2  | 34.5        | Adults             | 55.17 | Nintendo Switch | No                     | Valve            | Epic Games       | 2020         | Action    | No           | 26.3                | Medium           | Excellent          | Average       | Amazing game, but the gameplay is amazing.      | Offline   | 2                     |
+| Spelunky 2  | 14.1        | Adults             | 27.60 | Xbox            | Yes                    | Capcom           | Innersloth       | 2017         | Strategy  | Yes          | 7.3                 | Medium           | Good               | Poor          | Solid game, but the graphics could be better.   | Offline   | 5                     |
+| Spelunky 2  | 20.6        | All Ages           | 32.60 | PC              | No                     | Nintendo         | Capcom           | 2010         | Strategy  | Yes          | 20.2                | Ultra            | Poor               | Poor          | Disappointing game, but the gameplay is amazing.| Offline   | 1                     |
+| Spelunky 2  | 18.2        | Kids               | 31.08 | Nintendo Switch | Yes                    | Valve            | Capcom           | 2013         | RPG       | Yes          | 8.2                 | High             | Good               | Good          | Great game, but too many bugs.                  | Online    | 5                     |
+
+Data dari tebal di atas berisi 1219 baris dan 18 kolom.
 
 Ini adalah sebuah tautan untuk merancang proyek adalah sebagai berikut: <br>
-[https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam](https://www.kaggle.com/datasets/jahnavipaliwal/video-game-reviews-and-ratings)
+https://www.kaggle.com/datasets/jahnavipaliwal/video-game-reviews-and-ratings <br>
 
 Berikut ini adalah penjelasan tabel yang diambil secara mendalam adalah tabel sebagai berikut:
 1. Game Title: Nama game. <br>
@@ -95,8 +113,6 @@ Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel
 | 50%       | 29.700000   | 39.845000   | 2016.000000   | 32.500000   | 5.000000   |
 | 75%       | 35.100000   | 49.957500   | 2020.000000   | 46.300000   | 7.000000   |
 | max       | 49.500000   | 59.990000   | 2023.000000   | 60.000000   | 10.000000  |
- <br>
-Tabel di atas menampilkan statistik deskriptif untuk berbagai atribut game, termasuk peringkat pengguna, harga, tahun rilis, durasi permainan, dan jumlah pemain minimum. Setiap baris menampilkan statistik tertentu, seperti jumlah data, rata-rata, standar deviasi, nilai minimum, kuartil pertama, median, kuartil ketiga, dan nilai maksimum. Data ini membantu memahami distribusi dan fitur dataset game yang dianalisis. <br>
 
 ![Gambar 1](https://github.com/user-attachments/assets/1e191fc1-10a5-4eef-9ab6-669f8b477b08)
 
@@ -201,7 +217,26 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. 
 | Kingdom Hearts III                | Fighting | 49.3        | 59.87 |
 | Counter-Strike: Global Offensive  | Party    | 49.2        | 59.98 |
 
-Tabel di atas sudah disiapkan untuk dimasukkan ke dalam 2 algoritma. 
+Tabel di atas sudah disiapkan untuk dimasukkan ke dalam 2 algoritma.
+
+Berikut ini adalah tahap-tahap dari persiapan data di atas:
+1. Penanganan Missing Value <br>
+Kode ini menggunakan games.isnull().sum() untuk memeriksa missing value pada dataframe games. <br>
+Karena tidak ditemukan missing value, maka tidak ada penanganan khusus untuk missing value. <br>
+Jika ada missing value, biasanya kita dapat mengisinya dengan nilai rata-rata, median, atau modus, atau menghapus baris/kolom yang mengandung missing value tersebut. <br>
+2. Penyortiran Data <br>
+Kode ini menyortir data game berdasarkan 'User Rating' secara descending (dari nilai tertinggi ke terendah) menggunakan games.sort_values(by='User Rating', ascending=False). <br>
+Penyortiran ini dilakukan untuk memudahkan analisis dan pemodelan selanjutnya. <br>
+3. Penskalaan Fitur Numerik <br>
+Kode ini menggunakan MinMaxScaler dari sklearn.preprocessing untuk menskalakan fitur numerik (Price, User Rating, Release Year, Game Length, Min Number of Players). <br>
+Penskalaan ini dilakukan agar fitur-fitur tersebut memiliki rentang nilai yang sama (antara 0 dan 1), yang dapat meningkatkan kinerja model machine learning. <br>
+Penskalaan dilakukan dengan scaler.fit_transform(sorted_games[numerical_features]) setelah mendefinisikan fitur-fitur numerik yang akan diskalakan. <br>
+4. Pemilihan Fitur <br>
+Kode ini secara implisit memilih fitur-fitur yang relevan untuk pemodelan, seperti 'Game Title', 'Genre', 'User Rating', 'Price'. <br>
+Pemilihan fitur ini dilakukan dengan mengambil kolom-kolom tersebut dari dataframe sorted_games menggunakan sorted_games = sorted_games[selected_columns]. <br>
+5. Penggabungan Fitur Teks <br>
+Kode ini menggabungkan fitur teks (dalam hal ini, hanya 'Genre') menjadi satu kolom baru bernama 'combined_features' menggunakan sorted_games['combined_features'] = sorted_games[selected_columns].apply(lambda row: ' '.join(row.values.astype(str)), axis=1). <br>
+Hal ini dilakukan untuk mempermudah proses feature extraction dengan TF-IDF. <br>
 
 Top-N Recommendation:
 
@@ -247,19 +282,13 @@ TF-IDF Vectorizer adalah metode yang digunakan dalam pemrosesan teks untuk mengu
 
 Cosine Similarity adalah metode yang digunakan untuk mengukur kesamaan antara dua vektor dalam ruang multidimensi. Dalam konteks pemrosesan teks, setelah dokumen diubah menjadi representasi vektor menggunakan teknik seperti TF-IDF, Cosine Similarity dapat digunakan untuk menentukan seberapa mirip dua dokumen berdasarkan sudut antara mereka dalam ruang vektor. Nilai Cosine Similarity berkisar antara -1 hingga 1, di mana 1 menunjukkan kesamaan penuh dan 0 menunjukkan tidak ada kesamaan. Metode ini sangat berguna dalam berbagai aplikasi seperti deteksi plagiarisme dan rekomendasi konten, karena mampu membandingkan dokumen secara efisien dan efektif.(Januzaj,2022)
 
-Langkah-langkah yang sering dihadapi oleh model Content Based adalah:
-1. Representasi item: Setiap item direpresentasikan dalam bentuk fitur (contohnya genre film, kata kunci artikel, deskripsi produk, dll.).
-2. Representasi pengguna: Profil pengguna dibangun berdasarkan rata-rata atau agregasi dari fitur item yang telah diberi rating positif oleh pengguna.
-3. Kalkulasi kesamaan: Menggunakan metrik seperti cosine similarity, dot product, atau Euclidean distance untuk menghitung kemiripan antara profil pengguna dan item.
-4. Rekomendasi top-N: Item dengan skor kesamaan tertinggi dengan profil pengguna diberikan sebagai rekomendasi.
-
 Berikut ini adalah hasil dari Content Based Filtering
 
 ![Gambar 15](https://github.com/user-attachments/assets/c922b498-5da0-4eb5-9774-598837128496)
 
 Gambar 15. Hasil dari Output Content Based Filtering
 
-Gambar di atas menunjukkan daftar judul permainan video beserta genre dan rating pengguna. Daftar ini mencakup berbagai jenis permainan seperti "Just Dance 2024" yang bergenre aksi dan "Counter-Strike: Global Offensive" yang bergenre pesta. Informasi ini relevan bagi siapa saja yang tertarik dengan permainan video dan ingin mengetahui genre serta rating dari beberapa judul populer ketika aku membuat input game GTA 5. 
+Gambar di atas menunjukkan daftar judul permainan video beserta genre dan rating pengguna. Daftar ini mencantumkan beberapa judul permainan ketika data diinput berupa game "Grand Theft Auto V" akan menghasilkan "Just Dance 2024" yang bergenre aksi dan "Counter-Strike: Global Offensive" yang bergenre pesta. Informasi ini relevan bagi siapa saja yang tertarik dengan permainan video dan ingin mengetahui genre serta rating dari beberapa judul populer ketika aku membuat input game GTA 5. 
 
 Pendekatan yang dilakukan pada proyek ini adalah
 TF-IDF Vectorizer: <br>
@@ -286,19 +315,13 @@ Collaborative Filtering metode Item-Based adalah teknik dalam sistem rekomendasi
 
 Implementasi metode Item-Based Collaborative Filtering juga telah diterapkan dalam berbagai domain, termasuk e-commerce dan sistem rekomendasi film. Studi oleh Dewi et al. (2023) mengadopsi metode ini untuk mengelompokkan film yang serupa sebelum memberikan rekomendasi kepada pengguna, yang bertujuan untuk mereduksi data dan mempercepat proses eksekusi. Hasil penelitian menunjukkan bahwa metode ini efektif dalam memberikan rekomendasi yang akurat meskipun terdapat tantangan dalam hal waktu eksekusi dan akurasi prediksi rating. Dengan demikian, metode Item-Based Collaborative Filtering tetap menjadi pilihan yang populer dalam pengembangan sistem rekomendasi modern. (Dewi et al, 2023)
 
-Berikt ii adalah langkah-langkah dari Collaborative Filtering:
-1. Representasi data: Data disusun dalam bentuk user-item matrix (misalnya, pengguna memberikan rating untuk beberapa item).
-2. Pemetaan hubungan dengan Mencari kesamaan antar pengguna (user-based CF), atau Mencari kesamaan antar item (item-based CF).
-3. Prediksi preferensi dengan Prediksi rating atau skor untuk item yang belum dinilai oleh pengguna.
-4. Rekomendasi top-N: Pilih item dengan skor tertinggi yang belum pernah dilihat atau dinilai oleh pengguna.
-
 Berikut ini adalah hasil dari Content Based Filtering
 
 ![Gambar 16](https://github.com/user-attachments/assets/b0192159-9c51-4d8a-8a24-c80b5db55f06)
 
 Gambar 16. Hasil dari Output Collaborative Filtering
 
-Gambar di atas adalah tabel yang berisi daftar permainan video dengan kolom "Game Title" dan "Genre". Tabel ini mencantumkan beberapa judul permainan seperti "The Sims 4", "Spelunky 2", "Stardew Valley", "Overwatch 2", dan "Animal Crossing: New Horizons" dengan berbagai genre seperti Shooter, Adventure, Action, Fighting, Simulation, RPG, dan Sports. Tabel ini menunjukkan variasi genre yang luas dari permainan yang sama, seperti "The Sims 4" yang memiliki genre Shooter, Action, dan Simulation.
+Gambar di atas adalah tabel yang berisi daftar permainan video dengan kolom "Game Title" dan "Genre". Tabel ini mencantumkan beberapa judul permainan ketika data diinput berupa game "Grand Theft Auto V" akan menghasilkan "The Sims 4", "Spelunky 2", "Stardew Valley", "Overwatch 2", dan "Animal Crossing: New Horizons" dengan berbagai genre seperti Shooter, Adventure, Action, Fighting, Simulation, RPG, dan Sports. Tabel ini menunjukkan variasi genre yang luas dari permainan yang sama, seperti "The Sims 4" yang memiliki genre Shooter, Action, dan Simulation. Gambar di atas menunjukkan 10 game yang direkomendasikan dari judul dan genre yang disesuaikan.
 
 Pendekatan yang dilakukan oleh proyek ini adalah:
 Item-Based Collaborative Filtering
