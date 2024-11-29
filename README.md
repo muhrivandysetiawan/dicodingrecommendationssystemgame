@@ -379,6 +379,9 @@ Saran untuk evaluasi lebih lanjut. Untuk mendapatkan evaluasi yang lebih kompreh
 
 ### Kesimpulan
 
+Proyek sistem rekomendasi game ini dirancang untuk membantu pengguna platform seperti Steam menemukan game yang sesuai dengan preferensi mereka dari ribuan opsi yang tersedia. Dengan menggunakan teknik Content-Based Filtering dan Collaborative Filtering, sistem ini menganalisis fitur game seperti genre, rating pengguna, dan interaksi historis untuk memberikan saran yang relevan. Selain meningkatkan pengalaman pengguna, sistem ini juga bertujuan mendukung pengembang game dengan mengidentifikasi audiens yang sesuai, sehingga dapat meningkatkan penjualan. Algoritma yang digunakan mampu memberikan rekomendasi personal dengan pendekatan berbasis data seperti TF-IDF dan cosine similarity, serta memanfaatkan pola kesamaan antar pengguna. <br> 
+
+Evaluasi terhadap model menunjukkan kinerja optimal dengan metrik precision, recall, dan F1-Score yang tinggi pada data uji sederhana. Meski begitu, pengujian lebih lanjut dengan dataset yang lebih luas dan ground truth yang kompleks diperlukan untuk memastikan keandalan sistem dalam skenario nyata. Kedua pendekatan memiliki kelebihan dan kekurangan, seperti Content-Based Filtering yang rentan terhadap keterbatasan eksplorasi atau Collaborative Filtering yang menghadapi tantangan cold-start. Proyek ini memberikan kontribusi signifikan dalam mengatasi masalah keberagaman dan relevansi rekomendasi, namun evaluasi lanjutan serta optimasi lebih lanjut disarankan untuk meningkatkan skalabilitas dan akurasi dalam implementasi komersial. <br>
 
 ### Referensi
 
