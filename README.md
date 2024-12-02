@@ -326,7 +326,7 @@ Gambar di atas adalah tabel yang berisi daftar permainan video dengan kolom "Gam
 Pendekatan yang dilakukan oleh proyek ini adalah:
 Item-Based Collaborative Filtering
 Pendekatan:
-1. Menentukan kesamaan antar item berdasarkan pola rating dari pengguna (misalnya menggunakan cosine similarity atau adjusted cosine similarity).
+1. Menentukan kesamaan antar item berdasarkan pola rating dari pengguna dengan menggunakan SVD (Singular Value Decomposition) dimana teknik dalam aljabar linear yang digunakan untuk dekomposisi matriks.
 2. Prediksi preferensi pengguna dibuat berdasarkan kesamaan item yang telah diberi rating.
 
 Kelebihan dari Collaborative Filtering:
