@@ -97,11 +97,7 @@ Berikut ini adalah penjelasan tabel yang diambil secara mendalam adalah tabel se
 17. Game Mode: Mode permainan (misalnya, Single Player, Multiplayer). <br>
 18. Min Number of Players: Jumlah minimum pemain yang diperlukan untuk memainkan game. <br>
 
-Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomendasi adalah sebagai berikut:
-
-## Analisis Univariat
-
-Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel. Tujuannya adalah untuk memahami karakteristik dasar dari variabel tersebut, seperti distribusi, rata-rata, median, dan standar deviasi. Contoh analisis univariat adalah menghitung rata-rata harga game atau distribusi rating pengguna.
+Selanjutnya statistik data dari data yang numerik ditampilkan pada tabel di bawah ini!
 
 | Statistic | User Rating | Price | Release Year | Game Length (Hours) | Min Number of Players |
 |-----------|-------------|-------|--------------|---------------------|-----------------------|
@@ -113,6 +109,15 @@ Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel
 | 50%       | 29.700000   | 39.845000   | 2016.000000   | 32.500000   | 5.000000   |
 | 75%       | 35.100000   | 49.957500   | 2020.000000   | 46.300000   | 7.000000   |
 | max       | 49.500000   | 59.990000   | 2023.000000   | 60.000000   | 10.000000  |
+
+
+Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomendasi adalah sebagai berikut:
+
+## Exploratory Data Analysis.
+
+### Analisis Univariat
+
+Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel. Tujuannya adalah untuk memahami karakteristik dasar dari variabel tersebut, seperti distribusi, rata-rata, median, dan standar deviasi. Contoh analisis univariat adalah menghitung rata-rata harga game atau distribusi rating pengguna.
 
 ![Gambar 1](https://github.com/user-attachments/assets/1e191fc1-10a5-4eef-9ab6-669f8b477b08)
 
@@ -169,7 +174,7 @@ Gambar 9. Diagram Top 10 Genre
 Gambar di atas menunjukkan diagram batang yang menggambarkan 10 genre game teratas berdasarkan jumlah game. Setiap genre memiliki jumlah game yang hampir sama, sekitar 5000 game. Genre yang ditampilkan meliputi RPG, Shooter, Strategy, Puzzle, Simulation, Adventure, Party, Sports, Fighting, dan Action.
 
 
-## Analisis Multivariat
+### Analisis Multivariat
 
 Analisis Multivariat melibatkan lebih dari satu variabel dan bertujuan untuk memahami hubungan antara variabel-variabel tersebut. Analisis ini lebih kompleks dan dapat mencakup teknik seperti regresi berganda, analisis faktor, dan analisis klaster. Contoh analisis multivariat adalah mengkaji bagaimana harga, rating pengguna, dan tahun rilis bersama-sama mempengaruhi popularitas game.
 
@@ -203,7 +208,7 @@ Gambar 14. Diagram Matrix Korelasi
 
 Gambar di atas menunjukkan matriks korelasi dari fitur numerik yang terkait dengan permainan. Matriks ini mengilustrasikan hubungan antara harga, rating pengguna, tahun rilis, panjang permainan (jam), dan jumlah pemain minimum. Korelasi yang tinggi terlihat antara harga dan rating pengguna (0.76) serta antara rating pengguna dan panjang permainan (0.63), menunjukkan bahwa harga dan panjang permainan mungkin mempengaruhi rating pengguna.
 
-### Data Preparation
+## Data Preparation
 
 Sistem Rekomendasi:
 
@@ -274,7 +279,7 @@ Kekurangan:
 -Scalability: Model Collaborative Filtering bisa menjadi lambat dan tidak efisien untuk dataset yang sangat besar. <br>
 
 
-### Modeling and Result
+## Modeling and Result
 
 1. Content Based Filtering <br>
 
@@ -282,11 +287,24 @@ TF-IDF Vectorizer adalah metode yang digunakan dalam pemrosesan teks untuk mengu
 
 Cosine Similarity adalah metode yang digunakan untuk mengukur kesamaan antara dua vektor dalam ruang multidimensi. Dalam konteks pemrosesan teks, setelah dokumen diubah menjadi representasi vektor menggunakan teknik seperti TF-IDF, Cosine Similarity dapat digunakan untuk menentukan seberapa mirip dua dokumen berdasarkan sudut antara mereka dalam ruang vektor. Nilai Cosine Similarity berkisar antara -1 hingga 1, di mana 1 menunjukkan kesamaan penuh dan 0 menunjukkan tidak ada kesamaan. Metode ini sangat berguna dalam berbagai aplikasi seperti deteksi plagiarisme dan rekomendasi konten, karena mampu membandingkan dokumen secara efisien dan efektif.(Januzaj,2022)
 
+Berikut ini adalah rumus dari Cosine Similarity:
+
+![Cosine](https://github.com/user-attachments/assets/949de093-3b41-4e71-bcd1-77d9ceda4552)
+
+Gambar 15. Gambar Rumus Cosine Similarity
+
+Di mana:
+𝐴⋅𝐵 adalah hasil perkalian dot product antara vektor A dan B.
+∥𝐴∥ adalah panjang (norma) dari vektor A.
+∥𝐵∥ adalah panjang (norma) dari vektor B.
+
+Cosine similarity menghasilkan nilai antara -1 dan 1, di mana 1 menunjukkan bahwa kedua vektor tersebut sangat mirip, 0 menunjukkan bahwa mereka ortogonal (tidak ada kesamaan), dan -1 menunjukkan bahwa mereka berlawanan arah.
+
 Berikut ini adalah hasil dari Content Based Filtering
 
 ![Gambar 15](https://github.com/user-attachments/assets/c922b498-5da0-4eb5-9774-598837128496)
 
-Gambar 15. Hasil dari Output Content Based Filtering
+Gambar 16. Hasil dari Output Content Based Filtering
 
 Gambar di atas menunjukkan daftar judul permainan video beserta genre dan rating pengguna. Daftar ini mencantumkan beberapa judul permainan ketika data diinput berupa game "Grand Theft Auto V" akan menghasilkan "Just Dance 2024" yang bergenre aksi dan "Counter-Strike: Global Offensive" yang bergenre pesta. Informasi ini relevan bagi siapa saja yang tertarik dengan permainan video dan ingin mengetahui genre serta rating dari beberapa judul populer ketika aku membuat input game GTA 5. 
 
@@ -315,13 +333,25 @@ Collaborative Filtering metode Item-Based adalah teknik dalam sistem rekomendasi
 
 Implementasi metode Item-Based Collaborative Filtering juga telah diterapkan dalam berbagai domain, termasuk e-commerce dan sistem rekomendasi film. Studi oleh Dewi et al. (2023) mengadopsi metode ini untuk mengelompokkan film yang serupa sebelum memberikan rekomendasi kepada pengguna, yang bertujuan untuk mereduksi data dan mempercepat proses eksekusi. Hasil penelitian menunjukkan bahwa metode ini efektif dalam memberikan rekomendasi yang akurat meskipun terdapat tantangan dalam hal waktu eksekusi dan akurasi prediksi rating. Dengan demikian, metode Item-Based Collaborative Filtering tetap menjadi pilihan yang populer dalam pengembangan sistem rekomendasi modern. (Dewi et al, 2023)
 
+Rumus yang digunakan dalam modelling ini yakni SVD (ingular Value Decomposition) adalah sebagai berikut:
+
+![SVD](https://github.com/user-attachments/assets/fa80ec90-1d62-49c2-a71b-fabb9684a654)
+
+Gambar 17. Gambar Rumus SVD
+
+𝐴 adalah matriks asli yang akan didekomposisi.
+𝑈 adalah matriks ortogonal yang berisi vektor-vektor singular kiri.
+Σ adalah matriks diagonal yang berisi nilai-nilai singular.
+𝑉𝑇 adalah transpose dari matriks ortogonal 
+𝑉 yang berisi vektor-vektor singular kanan.
+
 Berikut ini adalah hasil dari Content Based Filtering
 
-![Gambar 16](https://github.com/user-attachments/assets/b0192159-9c51-4d8a-8a24-c80b5db55f06)
+![Hasil Collaborative](https://github.com/user-attachments/assets/fb11a14d-0bc7-4c77-abd6-481acc3ae036)
 
-Gambar 16. Hasil dari Output Collaborative Filtering
+Gambar 18. Hasil dari Output Collaborative Filtering
 
-Gambar di atas adalah tabel yang berisi daftar permainan video dengan kolom "Game Title" dan "Genre". Tabel ini mencantumkan beberapa judul permainan ketika data diinput berupa game "Grand Theft Auto V" akan menghasilkan "The Sims 4", "Spelunky 2", "Stardew Valley", "Overwatch 2", dan "Animal Crossing: New Horizons" dengan berbagai genre seperti Shooter, Adventure, Action, Fighting, Simulation, RPG, dan Sports. Tabel ini menunjukkan variasi genre yang luas dari permainan yang sama, seperti "The Sims 4" yang memiliki genre Shooter, Action, dan Simulation. Gambar di atas menunjukkan 10 game yang direkomendasikan dari judul dan genre yang disesuaikan.
+Gambar di atas menunjukkan tabel yang berisi daftar game beserta prediksi ratingnya. Tabel tersebut memiliki tiga kolom: "Game", "Predicted Rating", dan nomor urut. Semua game dalam tabel memiliki prediksi rating yang sama, yaitu 30.023363. Jika menginput Grand Theft Auto V, kemungkinan besar prediksi ratingnya juga akan sama, yaitu 30.023363, mengingat semua game dalam tabel memiliki prediksi rating yang identik.
 
 Pendekatan yang dilakukan oleh proyek ini adalah:
 Item-Based Collaborative Filtering
@@ -341,7 +371,7 @@ Kekurangan dari Collaborative Filtering:
 - Data Sparsity: Matriks user-item seringkali sparse (banyak data yang kosong), sehingga sulit untuk menemukan tetangga yang relevan. <br>
 - Scalability: CF bisa menjadi lambat dan tidak efisien untuk dataset yang sangat besar, karena memerlukan komputasi yang intensif untuk menghitung kesamaan antar pengguna atau item. <br>
 
-### Evaluation
+## Evaluation
 
 Proyek ini menggunakan tiga metrik evaluasi utama:
 
@@ -354,7 +384,7 @@ Presisi: Mengukur proporsi prediksi positif yang benar dari semua prediksi posit
 
 ![Gambar 17](https://github.com/user-attachments/assets/5a98efc6-d01d-4262-83ee-0dc12282c5ad)
 
-Gambar 17. Gambar Rumus Presisi
+Gambar 19. Gambar Rumus Presisi
 
 Di mana TP adalah True Positives dan FP adalah False Positives
 
@@ -362,7 +392,7 @@ Recall: Mengukur proporsi prediksi positif yang benar dari semua kasus positif a
 
 ![Gambar 18](https://github.com/user-attachments/assets/c26eb73a-4317-4f28-a782-6fda7b3454ef)
 
-Gambar 18. Gambar Rumus Presisi
+Gambar 20. Gambar Rumus Presisi
 
 Di mana TP adalah True Positives dan FN adalah False Negatives
 
@@ -370,7 +400,7 @@ Skor F1 (F1-Score): Rata-rata harmonis dari presisi dan recall, memberikan kesei
 
 ![Gambar 19](https://github.com/user-attachments/assets/4698f649-1d05-4506-8a03-ff51649163ca)
 
-Gambar 19. Rumus Skor F1
+Gambar 21. Rumus Skor F1
 
 Skor F1 memberikan satu nilai yang menggabungkan kedua metrik tersebut
 
@@ -378,11 +408,11 @@ Berikut ini adala hasil dari Content Based dan Collaborative Filtering
 
 ![Gambar 20](https://github.com/user-attachments/assets/df22bf93-69d8-47ef-a591-410f63132f3d)
 
-Gambar 20. Hasil Evaluasi Content Based
+Gambar 22. Hasil Evaluasi Content Based
 
 ![Gambar 21](https://github.com/user-attachments/assets/4d34bacc-3615-4ee3-b30d-d1bf9946f27a)
 
-Gambar 21. Hasil Evaluasi Content Based
+Gambar 23. Hasil Evaluasi Content Based
 
 Berdasarkan hasil evaluasi yang ditunjukkan, baik model Content-Based Filtering maupun Collaborative Filtering mendapatkan skor sempurna (1.0) untuk Precision, Recall, dan F1-Score.
 
@@ -400,13 +430,13 @@ Saran untuk evaluasi lebih lanjut. Untuk mendapatkan evaluasi yang lebih kompreh
 2. Gunakan Metrik Lain: Pertimbangkan untuk menggunakan metrik lain seperti Mean Average Precision (MAP) atau Normalized Discounted Cumulative Gain (NDCG) untuk mendapatkan perspektif yang berbeda tentang performa model.
 3. Evaluasi Kualitatif: Lakukan evaluasi kualitatif dengan meminta pengguna untuk memberikan feedback langsung terhadap rekomendasi yang diberikan oleh sistem.
 
-### Kesimpulan
+## Kesimpulan
 
 Proyek sistem rekomendasi game ini dirancang untuk membantu pengguna platform seperti Steam menemukan game yang sesuai dengan preferensi mereka dari ribuan opsi yang tersedia. Dengan menggunakan teknik Content-Based Filtering dan Collaborative Filtering, sistem ini menganalisis fitur game seperti genre, rating pengguna, dan interaksi historis untuk memberikan saran yang relevan. Selain meningkatkan pengalaman pengguna, sistem ini juga bertujuan mendukung pengembang game dengan mengidentifikasi audiens yang sesuai, sehingga dapat meningkatkan penjualan. Algoritma yang digunakan mampu memberikan rekomendasi personal dengan pendekatan berbasis data seperti TF-IDF dan cosine similarity, serta memanfaatkan pola kesamaan antar pengguna. <br> 
 
 Evaluasi terhadap model menunjukkan kinerja optimal dengan metrik precision, recall, dan F1-Score yang tinggi pada data uji sederhana. Meski begitu, pengujian lebih lanjut dengan dataset yang lebih luas dan ground truth yang kompleks diperlukan untuk memastikan keandalan sistem dalam skenario nyata. Kedua pendekatan memiliki kelebihan dan kekurangan, seperti Content-Based Filtering yang rentan terhadap keterbatasan eksplorasi atau Collaborative Filtering yang menghadapi tantangan cold-start. Proyek ini memberikan kontribusi signifikan dalam mengatasi masalah keberagaman dan relevansi rekomendasi, namun evaluasi lanjutan serta optimasi lebih lanjut disarankan untuk meningkatkan skalabilitas dan akurasi dalam implementasi komersial. <br>
 
-### Referensi
+## Referensi
 
 - I Putu, M. W., & Ida Bagus, G. D. (2023). Sistem Rekomendasi Game dengan Metode K-Nearest Neighbor (KNN). Jurnal Nasional Teknologi Informasi dan Aplikasinya. <br>
 - Zhang, Y., & Zhao, X. (2024). Category-based and Popularity-guided Video Game Recommendation: A Balance-oriented Framework. Proceedings of the ACM on Web Conference. <br>
