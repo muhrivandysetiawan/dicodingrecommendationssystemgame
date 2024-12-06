@@ -159,10 +159,6 @@ Filtering: Memfilter data berdasarkan kriteria tertentu. Pada proyek ini, data d
 Membatasi Data: Membatasi jumlah data yang digunakan, terutama saat dataset sangat besar. Pada proyek ini, data dibatasi hingga 5000 baris pada beberapa tahapan analisis dan visualisasi untuk meningkatkan performa.<br>
 
 
-3. Data Transformation: <br>
-TF-IDF (Term Frequency-Inverse Document Frequency): Digunakan untuk Content-Based Filtering, mengubah teks menjadi representasi numerik. Dilakukan dengan library TfidfVectorizer dari scikit-learn. <br>
-Cosine Similarity: Menghitung kesamaan antar item berdasarkan representasi TF-IDF. Dilakukan dengan library cosine_similarity dari scikit-learn.
-
 Proses Data Preparation <br>
 1. Content-Based Filtering: <br>
 
@@ -170,7 +166,7 @@ Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
 Data Selection: Memilih kolom yang relevan, seperti 'Genre', 'Game Title', dan memfilter data jika perlu. <br>
 Data Transformation: Menerapkan TF-IDF pada kolom 'Genre' untuk mengubah teks menjadi representasi numerik, lalu menghitung cosine similarity antar game berdasarkan representasi TF-IDF.<br>
 
-3.2 Collaborative Filtering: <br>
+2. Collaborative Filtering: <br>
 Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
 Data Selection: Memilih kolom 'Game Title', 'Genre', dan 'User Rating' dan membuat dataset yang sesuai untuk library Surprise. <br>
 Data Transformation: Tidak ada transformasi khusus selain yang dilakukan oleh library Surprise saat memuat data. <br>
