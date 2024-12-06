@@ -115,104 +115,29 @@ Berikut ini adalah analisis univariat dan multivariat untuk proyeksistem rekomen
 
 ## Exploratory Data Analysis.
 
-### Analisis Univariat
+![Gambar 78](https://github.com/user-attachments/assets/bc768e33-26da-44a4-8646-5586ebd19fad)
+Gambar 1. Gambar Histogram Distribusi User Rating dalam Game
 
-Analisis Univariat adalah analisis statistik yang hanya melibatkan satu variabel. Tujuannya adalah untuk memahami karakteristik dasar dari variabel tersebut, seperti distribusi, rata-rata, median, dan standar deviasi. Contoh analisis univariat adalah menghitung rata-rata harga game atau distribusi rating pengguna.
+Pada gambar di atas menunjukkan Histogram yang memperlihatkan distribusi User Rating di dalam kumpulan data game. Polanya mendekati bentuk kurva normal dengan puncak sekitar nilai rating 30, menandakan sebagian besar game memiliki rating yang cenderung sedang, dan jumlah game dengan rating sangat rendah atau sangat tinggi relatif sedikit.
 
-![Gambar 1](https://github.com/user-attachments/assets/1e191fc1-10a5-4eef-9ab6-669f8b477b08)
+![Gambar 79](https://github.com/user-attachments/assets/355f5453-86f2-4a4f-89e6-cf9cbca53acd)
+Gambar 2. Gambar Histogram Distribusi User Rating dalam Game
 
-Gambar 1. Diagram Distribusi Harga Game
+Pada gambar di atas menunjukkan grafik batang yang menunjukkan jumlah game berdasarkan kelompok umur (All Ages, Adults, Teens, Kids) dari 5000 data pertama. Terlihat bahwa distribusi game cukup merata pada tiap kelompok umur, meski kategori Adults memiliki jumlah yang sedikit lebih banyak dibandingkan dengan kategori lainnya.
 
-Gambar di atas menunjukkan distribusi harga game dalam bentuk histogram dengan kurva distribusi yang dihaluskan. Sumbu horizontal (x) mewakili harga game, sedangkan sumbu vertikal (y) menunjukkan jumlah game. Histogram ini menunjukkan bahwa jumlah game relatif merata di berbagai rentang harga, dengan sedikit penurunan di harga terendah dan tertinggi.
+![Gambar 80](https://github.com/user-attachments/assets/324f14d6-bebf-4b95-ac5b-16f4d066203a)
+Gambar 3. Gambar Histogram Distribusi User Rating dalam Game
 
-![Gambar 2](https://github.com/user-attachments/assets/51012046-8d46-48eb-82dd-fc1551c0cf05)
+Pada gambar di atas menunjukkkan matriks korelasi fitur game yang menunjukkan sejauh mana setiap variabel, seperti User Rating, Harga, Tahun Rilis, Durasi Permainan, dan Jumlah Minimum Pemain saling berhubungan. Dari sana tampak bahwa User Rating berkorelasi cukup kuat dengan Harga dan Durasi Permainan, sedangkan Tahun Rilis dan Jumlah Minimum Pemain tidak memiliki hubungan yang berarti dengan fitur-fitur lain.
 
-Gambar 2. Diagram Distribusi User Rating
-
-Gambar di atas menunjukkan distribusi rating pengguna untuk sebuah game, dengan sumbu horizontal mewakili rating pengguna dari 10 hingga 50 dan sumbu vertikal mewakili jumlah game. Distribusi ini berbentuk kurva lonceng, menunjukkan bahwa sebagian besar game memiliki rating pengguna di sekitar 30. Ini menarik karena menunjukkan bahwa rating pengguna cenderung berkumpul di sekitar nilai tengah, dengan sedikit game yang memiliki rating sangat rendah atau sangat tinggi.
-
-![Gambar 3](https://github.com/user-attachments/assets/f03ed641-31a6-4e92-873c-1f29693b7d85)
-
-Gambar 3. Diagram Distribusi Tahun Rilis
-
-Gambar di atas menunjukkan distribusi jumlah game yang dirilis setiap tahun dari 2010 hingga 2022. Grafik batang biru menunjukkan jumlah game yang dirilis setiap tahun, yang berkisar sekitar 3500 game per tahun. Garis biru di tengah grafik menunjukkan tren jumlah game yang dirilis, yang relatif stabil di sekitar 1500 game per tahun.
-
-![Gambar 4](https://github.com/user-attachments/assets/b9133f60-1ae5-4ed6-adf6-7b6cef9305bb)
-
-Gambar 4. Diagram Distribusi Game Length
-
-Gambar di atas menunjukkan distribusi panjang permainan dalam bentuk histogram dengan garis kurva yang menghaluskan data. Sumbu horizontal (x) mewakili panjang permainan, sedangkan sumbu vertikal (y) menunjukkan jumlah permainan. Grafik ini menunjukkan bahwa jumlah permainan relatif merata di berbagai panjang permainan, dengan sedikit penurunan di ujung-ujung distribusi.
-
-![Gambar 5](https://github.com/user-attachments/assets/61ce6616-80b4-4482-89c9-165496d0d948)
-
-Gambar 5. Diagram Distribusi Jumlah Pemain
-
-Gambar di atas menunjukkan distribusi jumlah pemain dalam game dengan minimal jumlah pemain dari 2 hingga 10. Grafik batang menunjukkan jumlah game yang dimainkan pada setiap jumlah pemain minimal, yang semuanya berada di sekitar 5000 game. Garis biru menunjukkan fluktuasi jumlah game yang dimainkan, dengan pola naik turun yang konsisten di sekitar 1000 hingga 2000 game.
-
-![Gambar 6](https://github.com/user-attachments/assets/afafb3c3-a4aa-455e-9260-309d3d8c4b01)
-
-Gambar 6. Diagram Distribusi Kualitas Grafik
-
-Gambar di atas menunjukkan distribusi kualitas grafik dari berbagai game dalam empat kategori: Medium, Low, High, dan Ultra. Grafik batang menunjukkan jumlah game dalam setiap kategori, sementara garis kurva menunjukkan distribusi frekuensi yang lebih halus. Grafik ini memberikan gambaran visual tentang bagaimana kualitas grafik game terdistribusi dan seberapa banyak game yang termasuk dalam setiap kategori.
-
-![Gambar 7](https://github.com/user-attachments/assets/7efe223d-7342-4950-a080-02ad36720b64)
-
-Gambar 7. Diagram Distribusi Kualitas Soundtrack
-
-Gambar di atas menunjukkan distribusi kualitas soundtrack dalam game berdasarkan jumlah game. Histogram menunjukkan jumlah game dengan kualitas soundtrack yang berbeda (Average, Poor, Good, Excellent), sementara kurva distribusi menggambarkan pola distribusi data tersebut. Grafik ini menunjukkan bahwa meskipun jumlah game dengan kualitas soundtrack yang berbeda relatif sama, pola distribusi menunjukkan variasi yang signifikan dalam jumlah game pada setiap kategori kualitas.
-
-![Gambar 8](https://github.com/user-attachments/assets/06fecd3e-a311-40d0-b1e5-dea31bfa3faa)
-
-Gambar 8. Diagram Distribusi Kualitas Cerita
-
-Gambar di atas menunjukkan distribusi kualitas cerita dari sejumlah game. Grafik ini menggabungkan histogram dan kurva distribusi, di mana sumbu horizontal mewakili kategori kualitas cerita (Poor, Average, Excellent, Good) dan sumbu vertikal menunjukkan jumlah game. Terlihat bahwa jumlah game relatif merata di setiap kategori kualitas cerita, dengan puncak kurva distribusi yang tinggi pada setiap batas kategori.
-
-![Gambar 9](https://github.com/user-attachments/assets/7aeba835-bd86-4cba-979c-3b0d659db6e8)
-
-Gambar 9. Diagram Top 10 Genre
-
-Gambar di atas menunjukkan diagram batang yang menggambarkan 10 genre game teratas berdasarkan jumlah game. Setiap genre memiliki jumlah game yang hampir sama, sekitar 5000 game. Genre yang ditampilkan meliputi RPG, Shooter, Strategy, Puzzle, Simulation, Adventure, Party, Sports, Fighting, dan Action.
-
-
-### Analisis Multivariat
-
-Analisis Multivariat melibatkan lebih dari satu variabel dan bertujuan untuk memahami hubungan antara variabel-variabel tersebut. Analisis ini lebih kompleks dan dapat mencakup teknik seperti regresi berganda, analisis faktor, dan analisis klaster. Contoh analisis multivariat adalah mengkaji bagaimana harga, rating pengguna, dan tahun rilis bersama-sama mempengaruhi popularitas game.
-
-![Gambar 10](https://github.com/user-attachments/assets/8ae6b963-e71f-490f-af66-bdab6485956e)
-
-Gambar 10. Diagram Hubungan Rating dan Harga
-
-Gambar di atas adalah scatter plot yang menunjukkan hubungan antara User Rating dan Price. Scatter plot ini memperlihatkan bahwa terdapat korelasi positif antara harga dan rating pengguna, di mana harga yang lebih tinggi cenderung memiliki rating pengguna yang lebih tinggi. Hal ini menarik karena menunjukkan bahwa produk dengan harga lebih tinggi mungkin dianggap lebih bernilai oleh pengguna.
-
-![Gambar 11](https://github.com/user-attachments/assets/de4c18a9-29be-4b37-8d93-026f3ec46dec)
-
-Gambar 11. Diagram Hubungan User Rating dan Tahun Rilis
-
-Gambar di atas adalah scatter plot yang menunjukkan hubungan antara "User Rating" dan "Release Year" dari tahun 2010 hingga 2022. Setiap titik pada grafik mewakili rating pengguna untuk suatu tahun rilis tertentu, dengan sumbu x menunjukkan tahun rilis dan sumbu y menunjukkan rating pengguna. Grafik ini menunjukkan bahwa distribusi rating pengguna cukup merata di setiap tahun rilis, tanpa ada tren yang jelas meningkat atau menurun dari waktu ke waktu.
-
-![Gambar 12](https://github.com/user-attachments/assets/841bf154-5cc9-4b02-a971-d093d6d5a858)
-
-Gambar 12. Diagram Hubungan User Rating dan Genre
-
-Gambar di atas menunjukkan diagram kotak (box plot) yang membandingkan rating pengguna berdasarkan genre permainan. Setiap kotak mewakili distribusi rating pengguna untuk genre tertentu, dengan garis tengah menunjukkan median, dan garis vertikal menunjukkan rentang minimum dan maksimum. Diagram ini menarik karena memberikan gambaran visual tentang bagaimana rating pengguna bervariasi di antara berbagai genre permainan.
-
-![Gambar 13](https://github.com/user-attachments/assets/df6cfaa9-7e75-4b0f-8bda-cf7b3d3a1534)
-
-Gambar 13. Diagram Hubungan User Rating dan Genre
-
-Gambar di atas menunjukkan hubungan antara fitur multiplayer pada sebuah permainan ("Yes" atau "No") dengan rating pengguna. Distribusi rating tampak tersebar merata pada kedua kategori, menunjukkan bahwa fitur multiplayer tidak secara langsung memengaruhi tingkat rating pengguna. Hal ini mengindikasikan bahwa faktor lain mungkin lebih berperan dalam menentukan rating pengguna.
-
-![Gambar 14](https://github.com/user-attachments/assets/a4989706-eb5f-4caf-a9b2-f191e9253d25)
-
-Gambar 14. Diagram Matrix Korelasi
-
-Gambar di atas menunjukkan matriks korelasi dari fitur numerik yang terkait dengan permainan. Matriks ini mengilustrasikan hubungan antara harga, rating pengguna, tahun rilis, panjang permainan (jam), dan jumlah pemain minimum. Korelasi yang tinggi terlihat antara harga dan rating pengguna (0.76) serta antara rating pengguna dan panjang permainan (0.63), menunjukkan bahwa harga dan panjang permainan mungkin mempengaruhi rating pengguna.
 
 ## Data Preparation
 
 Sistem Rekomendasi:
 
-Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. Sistem ini menggunakan dua algoritma yang berbeda, yaitu Content-Based Filtering dan Collaborative Filtering, untuk memberikan rekomendasi game kepada pengguna berdasarkan preferensi mereka.
+Tahap persiapan data (Data Preparation) adalah langkah penting dalam proyek machine learning, termasuk sistem rekomendasi. Tujuannya adalah untuk membersihkan, mentransformasi, dan mempersiapkan data mentah agar optimal untuk diproses oleh model. Dokumentasi ini menjelaskan teknik dan proses data preparation yang dilakukan pada proyek Sistem Rekomendasi Game.
+
+Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. Sistem ini menggunakan dua algoritma yang berbeda, yaitu Content-Based Filtering dan Collaborative Filtering, untuk memberikan rekomendasi game kepada pengguna berdasarkan preferensi mereka. <br>
 
 | Game Title                        | Genre    | User Rating | Price |
 |-----------------------------------|----------|-------------|-------|
@@ -222,61 +147,38 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. 
 | Kingdom Hearts III                | Fighting | 49.3        | 59.87 |
 | Counter-Strike: Global Offensive  | Party    | 49.2        | 59.98 |
 
-Tabel di atas sudah disiapkan untuk dimasukkan ke dalam 2 algoritma.
+Berikut adalah teknik-teknik data preparation yang diterapkan pada proyek ini:
 
-Berikut ini adalah tahap-tahap dari persiapan data di atas:
-1. Penanganan Missing Value <br>
-Kode ini menggunakan games.isnull().sum() untuk memeriksa missing value pada dataframe games. <br>
-Karena tidak ditemukan missing value, maka tidak ada penanganan khusus untuk missing value. <br>
-Jika ada missing value, biasanya kita dapat mengisinya dengan nilai rata-rata, median, atau modus, atau menghapus baris/kolom yang mengandung missing value tersebut. <br>
-2. Penyortiran Data <br>
-Kode ini menyortir data game berdasarkan 'User Rating' secara descending (dari nilai tertinggi ke terendah) menggunakan games.sort_values(by='User Rating', ascending=False). <br>
-Penyortiran ini dilakukan untuk memudahkan analisis dan pemodelan selanjutnya. <br>
-3. Penskalaan Fitur Numerik <br>
-Kode ini menggunakan MinMaxScaler dari sklearn.preprocessing untuk menskalakan fitur numerik (Price, User Rating, Release Year, Game Length, Min Number of Players). <br>
-Penskalaan ini dilakukan agar fitur-fitur tersebut memiliki rentang nilai yang sama (antara 0 dan 1), yang dapat meningkatkan kinerja model machine learning. <br>
-Penskalaan dilakukan dengan scaler.fit_transform(sorted_games[numerical_features]) setelah mendefinisikan fitur-fitur numerik yang akan diskalakan. <br>
-4. Pemilihan Fitur <br>
-Kode ini secara implisit memilih fitur-fitur yang relevan untuk pemodelan, seperti 'Game Title', 'Genre', 'User Rating', 'Price'. <br>
-Pemilihan fitur ini dilakukan dengan mengambil kolom-kolom tersebut dari dataframe sorted_games menggunakan sorted_games = sorted_games[selected_columns]. <br>
-5. Penggabungan Fitur Teks <br>
-Kode ini menggabungkan fitur teks (dalam hal ini, hanya 'Genre') menjadi satu kolom baru bernama 'combined_features' menggunakan sorted_games['combined_features'] = sorted_games[selected_columns].apply(lambda row: ' '.join(row.values.astype(str)), axis=1). <br>
-Hal ini dilakukan untuk mempermudah proses feature extraction dengan TF-IDF. <br>
+1. Data Cleaning:
+Menangani Missing Value: Memeriksa dan menangani data yang hilang (missing values). Pada proyek ini, dilakukan pengecekan missing value dengan games.isnull().sum(). <br>
+Menangani Data Duplikat: Mengidentifikasi dan menghapus data yang duplikat. Dilakukan dengan games.duplicated().sum() dan games[games.duplicated()]. <br>
 
-Top-N Recommendation:
+2. Data Selection:
+Memilih Fitur Relevan: Memilih fitur (kolom) yang relevan untuk model. Pada proyek ini, fitur-fitur seperti 'Game Title', 'Genre', 'User Rating', 'Platform', dll. dipilih untuk Content-Based Filtering dan Collaborative Filtering.<br>
+Filtering: Memfilter data berdasarkan kriteria tertentu. Pada proyek ini, data difilter untuk Content-Based Filtering agar tidak terjadi crash saat menjalankan cosine similarity, dan untuk Collaborative Filtering agar hanya mengambil data 'Game Title', 'Genre', dan 'User Rating'. <br>
+Membatasi Data: Membatasi jumlah data yang digunakan, terutama saat dataset sangat besar. Pada proyek ini, data dibatasi hingga 5000 baris pada beberapa tahapan analisis dan visualisasi untuk meningkatkan performa.<br>
 
-Kedua algoritma yang diimplementasikan dalam proyek ini menghasilkan top-N recommendation sebagai output. Artinya, sistem akan memberikan daftar N game yang paling direkomendasikan kepada pengguna. Jumlah rekomendasi (N) dapat dikonfigurasi sesuai kebutuhan. Pada kode yang Anda berikan, top_n diset ke 10, yang berarti sistem akan merekomendasikan 10 game teratas.
 
-Dua Solusi Rekomendasi dengan Algoritma Berbeda:
+3. Data Transformation: <br>
+TF-IDF (Term Frequency-Inverse Document Frequency): Digunakan untuk Content-Based Filtering, mengubah teks menjadi representasi numerik. Dilakukan dengan library TfidfVectorizer dari scikit-learn. <br>
+Cosine Similarity: Menghitung kesamaan antar item berdasarkan representasi TF-IDF. Dilakukan dengan library cosine_similarity dari scikit-learn.
 
-Content-Based Filtering: Algoritma ini merekomendasikan game yang serupa dengan game yang disukai pengguna sebelumnya. Algoritma ini menganalisis fitur-fitur game, seperti genre, platform, dan pengembang, untuk menemukan game yang sesuai dengan preferensi pengguna. Dalam kode Anda, Content-Based Filtering diimplementasikan menggunakan TF-IDF untuk membuat representasi vektor dari fitur game dan Cosine Similarity untuk mengukur kesamaan antar game.
+Proses Data Preparation <br>
+1. Content-Based Filtering: <br>
 
-Collaborative Filtering (Item-Based): Algoritma ini merekomendasikan game yang disukai oleh pengguna lain yang memiliki selera serupa dengan pengguna target. Algoritma ini menggunakan data rating pengguna untuk menemukan pengguna yang memiliki selera serupa dan kemudian merekomendasikan game yang disukai oleh pengguna tersebut. Dalam kode Anda, Collaborative Filtering (Item-Based) diimplementasikan menggunakan matriks item-item yang berisi rating rata-rata pengguna untuk setiap game dalam setiap genre dan Cosine Similarity untuk mengukur kesamaan antar game.
+Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
+Data Selection: Memilih kolom yang relevan, seperti 'Genre', 'Game Title', dan memfilter data jika perlu. <br>
+Data Transformation: Menerapkan TF-IDF pada kolom 'Genre' untuk mengubah teks menjadi representasi numerik, lalu menghitung cosine similarity antar game berdasarkan representasi TF-IDF.<br>
 
-Kelebihan dan Kekurangan Pendekatan yang Dipilih:
+3.2 Collaborative Filtering: <br>
+Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
+Data Selection: Memilih kolom 'Game Title', 'Genre', dan 'User Rating' dan membuat dataset yang sesuai untuk library Surprise. <br>
+Data Transformation: Tidak ada transformasi khusus selain yang dilakukan oleh library Surprise saat memuat data. <br>
 
-1. Content-Based Filtering:  <br>
-
-Kelebihan:
-Mudah diimplementasi dan dipahami.<br>
-Hanya membutuhkan data dari satu pengguna, tidak seperti Collaborative Filtering.<br>
-Dapat merekomendasikan item niche yang tidak populer di antara pengguna lain.<br>
-
-Kekurangan:
--Rentan terhadap "filter bubble" di mana pengguna hanya direkomendasikan item yang serupa dengan yang mereka sukai sebelumnya.<br>
--Membutuhkan data konten yang kaya dan terstruktur. <br>
--Sulit untuk merekomendasikan item di luar preferensi pengguna yang sudah ada.<br>
-
-2. Collaborative Filtering (Item-Based): <br>
-
-Kelebihan:
--Dapat memberikan rekomendasi yang mengejutkan dan tidak terduga. <br>
--Tidak memerlukan data konten yang detail. <br>
--Akurasi rekomendasi meningkat seiring dengan bertambahnya data pengguna. <br>
-Kekurangan:
--Cold start problem: Sulit untuk memberikan rekomendasi kepada pengguna baru atau item baru yang belum memiliki rating. <br>
--Data sparsity: Matriks user-item seringkali sparse (banyak data yang kosong), sehingga sulit untuk menemukan tetangga yang relevan. <br>
--Scalability: Model Collaborative Filtering bisa menjadi lambat dan tidak efisien untuk dataset yang sangat besar. <br>
+Alasan Data Preparation dilakukan  adalah sebagai berikut: <br>
+Data Cleaning: Data yang bersih dan konsisten penting untuk akurasi model. Menangani missing values dan data duplikat mencegah kesalahan dan bias dalam hasil rekomendasi. <br>
+Data Selection: Memilih fitur yang relevan dan memfilter data meningkatkan efisiensi dan performa model. Fitur yang tidak relevan dapat mengurangi akurasi, dan data yang terlalu banyak dapat memperlambat proses pelatihan. <br>
+Data Transformation: Transformasi data seperti TF-IDF dan cosine similarity diperlukan untuk Content-Based Filtering agar model dapat memahami dan membandingkan konten game. Pada Collaborative Filtering, library Surprise melakukan transformasi internal untuk menghitung kesamaan antar pengguna atau item. <br>
 
 
 ## Modeling and Result
