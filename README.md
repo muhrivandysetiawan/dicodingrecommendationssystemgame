@@ -147,13 +147,7 @@ Proyek ini bertujuan untuk membangun sistem rekomendasi game di platform Steam. 
 | Kingdom Hearts III                | Fighting | 49.3        | 59.87 |
 | Counter-Strike: Global Offensive  | Party    | 49.2        | 59.98 |
 
-Berikut adalah teknik-teknik data preparation yang diterapkan pada proyek ini:
-
-1. Data Cleaning:
-Menangani Missing Value: Memeriksa dan menangani data yang hilang (missing values). Pada proyek ini, dilakukan pengecekan missing value dengan games.isnull().sum(). <br>
-Menangani Data Duplikat: Mengidentifikasi dan menghapus data yang duplikat. Dilakukan dengan games.duplicated().sum() dan games[games.duplicated()]. <br>
-
-2. Data Selection:
+Teknik-teknik data preparation yang diterapkan pada proyek ini adalah Data Selection yang terdiri dari:
 Memilih Fitur Relevan: Memilih fitur (kolom) yang relevan untuk model. Pada proyek ini, fitur-fitur seperti 'Game Title', 'Genre', 'User Rating', 'Platform', dll. dipilih untuk Content-Based Filtering dan Collaborative Filtering.<br>
 Filtering: Memfilter data berdasarkan kriteria tertentu. Pada proyek ini, data difilter untuk Content-Based Filtering agar tidak terjadi crash saat menjalankan cosine similarity, dan untuk Collaborative Filtering agar hanya mengambil data 'Game Title', 'Genre', dan 'User Rating'. <br>
 Membatasi Data: Membatasi jumlah data yang digunakan, terutama saat dataset sangat besar. Pada proyek ini, data dibatasi hingga 5000 baris pada beberapa tahapan analisis dan visualisasi untuk meningkatkan performa.<br>
@@ -161,18 +155,15 @@ Membatasi Data: Membatasi jumlah data yang digunakan, terutama saat dataset sang
 
 Proses Data Preparation <br>
 1. Content-Based Filtering: <br>
-
-Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
 Data Selection: Memilih kolom yang relevan, seperti 'Genre', 'Game Title', dan memfilter data jika perlu. <br>
 Data Transformation: Menerapkan TF-IDF pada kolom 'Genre' untuk mengubah teks menjadi representasi numerik, lalu menghitung cosine similarity antar game berdasarkan representasi TF-IDF.<br>
 
 2. Collaborative Filtering: <br>
-Data Cleaning: Memeriksa dan menangani missing values dan data duplikat. <br>
 Data Selection: Memilih kolom 'Game Title', 'Genre', dan 'User Rating' dan membuat dataset yang sesuai untuk library Surprise. <br>
 Data Transformation: Tidak ada transformasi khusus selain yang dilakukan oleh library Surprise saat memuat data. <br>
 
 Alasan Data Preparation dilakukan  adalah sebagai berikut: <br>
-Data Cleaning: Data yang bersih dan konsisten penting untuk akurasi model. Menangani missing values dan data duplikat mencegah kesalahan dan bias dalam hasil rekomendasi. <br>
+Data Split: Membagi dataset menjadi beberapa bagian, biasanya untuk tujuan training dan testing model, dimana datanya terbagi ke train size sbenayak 75% dan test size sebanyak 25%.
 Data Selection: Memilih fitur yang relevan dan memfilter data meningkatkan efisiensi dan performa model. Fitur yang tidak relevan dapat mengurangi akurasi, dan data yang terlalu banyak dapat memperlambat proses pelatihan. <br>
 Data Transformation: Transformasi data seperti TF-IDF dan cosine similarity diperlukan untuk Content-Based Filtering agar model dapat memahami dan membandingkan konten game. Pada Collaborative Filtering, library Surprise melakukan transformasi internal untuk menghitung kesamaan antar pengguna atau item. <br>
 
